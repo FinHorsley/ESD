@@ -13,3 +13,5 @@
 /WebApplication2/build/
 derby.log
 *.ctrl
+derby.log
+SmartCare/db.lck
