@@ -34,6 +34,7 @@
 
             .right {
                 float: right;
+                padding-top: 14px;
                 padding-right: 16px;
             }
             .topnav a:hover {
@@ -46,6 +47,11 @@
                 color: black;
                 font-size: 20px;
             }
+            .topnav a.title2 {
+                background-color: #DFDED2;
+                color: black;
+                font-size: 12px;
+            }
         </style>
         <meta charset="utf-8">
         <title>Admin CPanel - SmartCare</title>
@@ -55,7 +61,8 @@
         <div class="topnav">
             <a class="title left">SmartCare Web Page</a>
             <div class="right">
-                <p> ${user.uname} (${user.role})</p>  
+                <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
+                <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
             </div>
 
         </div>

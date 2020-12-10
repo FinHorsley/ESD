@@ -5,6 +5,7 @@
  */
 package net;
 
+import java.io.*;
 import java.io.IOException;
 
 import javax.servlet.*;
@@ -30,7 +31,7 @@ public class UserLogoutServlet extends HttpServlet {
         if (session != null) {
             session.removeAttribute("user");
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
         }
     }
