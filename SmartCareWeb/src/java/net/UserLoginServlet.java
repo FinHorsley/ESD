@@ -30,7 +30,6 @@ public class UserLoginServlet extends HttpServlet {
         
         String uname = request.getParameter("uname");
         String passwd = request.getParameter("passwd");
-
         UserDAO userDao = new UserDAO();
 
         try {

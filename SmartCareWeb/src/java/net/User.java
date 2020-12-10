@@ -12,7 +12,7 @@ package net;
 public class User {
 
     private String uname;
-    private String role;
+    public static String role;
     private String passwd;
 
     public String getUname() {
