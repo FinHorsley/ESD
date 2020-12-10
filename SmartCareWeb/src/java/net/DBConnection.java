@@ -14,7 +14,7 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-    static final String URL = "jdbc:deby://localhost:1527/";
+    static final String URL = "jdbc:derby://localhost:1527/";
     static final String DATABASE_NAME = "SmartCare";
     static final String USERNAME = "Harry";
     static final String PASSWORD = "123";
