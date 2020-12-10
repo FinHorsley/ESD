@@ -8,47 +8,57 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login System</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .topnav {
+                overflow: hidden;
+                background-color: #DFDED2;
+            }
+
+            .topnav a {
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+                color: black;
+            }
+            .left {
+                float: left;
+            }
+
+            .right {
+                float: right;
+            }
+            .topnav a:hover {
+                background-color: #D2D1C4;
+                color: black;
+            }
+
+            .topnav a.title {
+                background-color: #DFDED2;
+                color: black;
+                font-size: 20px;
+            }
+        </style>
     </head>
-
     <body>
-        <%
-            String uname = (String) session.getAttribute("uname");
 
-            //redirect user to home page if already logged in
-            if (uname != null) {
-                response.sendRedirect("home.jsp");
-            }
+        <div class="topnav">
+            <a class="title left">SmartCare Web Page</a>
+            <a class="right" href="login.jsp">Login</a>
+        </div>
 
-            String status = request.getParameter("status");
 
-            if (status != null) {
-                if (status.equals("false")) {
-                    out.print("Incorrect login details!");
-                } else {
-                    out.print("Some error occurred!");
-                }
-            }
-        %>
-
-        <form action="loginRequestHandler.jsp">
-            <table cellpadding="5">
-                <tr>
-                    <td><b>Username</b></td>
-                    <td><input type="text" name="uname" required/></td>
-                </tr>
-
-                <tr>
-                    <td><b>Password:</b></td>
-                    <td><input type="password" name="passwd" required/></td>
-                </tr>
-
-                <tr>
-                    <td colspan="2" align="center"><input type="submit" value="Login"/></td>
-                </tr>
-
-            </table>
-        </form>
+        <div style="padding-left:16px">
+            <h2>Top Navigation Example</h2>
+            <p>Some content..</p>
+        </div>
 
     </body>
 </html>

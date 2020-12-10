@@ -16,3 +16,6 @@ derby.log
 derby.log
 SmartCare/db.lck
 SmartCare/log/log1.dat
+
+*.dat
+

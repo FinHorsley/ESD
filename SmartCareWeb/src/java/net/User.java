@@ -9,25 +9,34 @@ package net;
  *
  * @author harry
  */
-// User profiles
-public class LoginBean {
+public class User {
 
     private String uname;
+    public static String role;
     private String passwd;
 
-    public String getuname() {
+    public String getUname() {
         return uname;
     }
 
-    public void setuname(String uname) {
-        this.uname = uname;
+    public String getRole() {
+        return role;
     }
 
-    public String getpasswd() {
+    public String getPasswd() {
         return passwd;
     }
 
-    public void setpasswd(String passwd) {
+    public void setUname(String uname) {
+        this.uname = uname;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setPasswd(String passwd) {
         this.passwd = passwd;
     }
+
 }
