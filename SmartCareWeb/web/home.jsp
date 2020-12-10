@@ -1,6 +1,6 @@
 <%-- 
     Document   : home
-    Created on : 09-Dec-2020, 11:46:42
+    Created on : 10-Dec-2020, 14:05:07
     Author     : harry
 --%>
 
@@ -8,20 +8,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login System</title>
+        <meta charset="utf-8">
+        <title>Admin CPanel - SmartCare</title>
     </head>
-
     <body>
-        <%
-            String uname = (String) session.getAttribute("uname");
-
-            //redirect user to login page if not logged in
-            if (uname == null) {
-                response.sendRedirect("index.jsp");
-            }
-        %>
-
-        <p>Welcome <%=uname%> </p>    
-        <a href="logout.jsp">Logout</a>
+        <div style="text-align: center">
+            <h1>Welcome to SmartCare Website Admin Panel</h1>
+            <b>${user.uname} (${user.role})</b>
+            <br><br>
+            <a href="/logout">Logout</a>
+        </div>
     </body>
 </html>
