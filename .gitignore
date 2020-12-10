@@ -15,3 +15,4 @@ derby.log
 *.ctrl
 derby.log
 SmartCare/db.lck
+SmartCare/log/log1.dat
