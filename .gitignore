@@ -21,6 +21,8 @@ SmartCare/db.lck
 .mtj.tmp/
 # Package Files #
 *.jar
+# Except the mysql connector!
+!/lib/mysql-connector-java-8.0.13.jar
 *.war
 *.ear
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
