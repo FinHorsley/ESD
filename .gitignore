@@ -13,3 +13,4 @@
 /WebApplication2/build/
 derby.log
 *.ctrl
+*.dat
