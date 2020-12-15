@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 /**
  *
- * @author Harry Marsh
+ * @author Harry Marsh & Kamil Lukomski
  */
 public class BookingDAO { 
      public String BookingUser(BookingBean BookingBean)

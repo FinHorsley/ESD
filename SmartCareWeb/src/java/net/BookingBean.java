@@ -7,7 +7,7 @@ package net;
 
 /**
  *
- * @author Harry Marsh
+ * @author Harry Marsh & Kamil Lukomski
  */
 public class BookingBean {
  
