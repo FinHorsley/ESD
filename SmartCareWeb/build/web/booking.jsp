@@ -85,23 +85,23 @@
             <a class="title left">SmartCare Web Page</a>
             <a class="right" href="index.jsp">Home</a>
         </div>
-    <center><h2>Registration </h2></center>
+    <center><h2>Consultation Booking </h2></center>
     <form name="form" action="booking" method="post" onsubmit="return validate()">
         <table align="center">
             <tr>
-                <td>Employee Id</td>
-                <td><input type="text" name="eid" /></td>
+                <td>Employee Id: </td>
+                <td><input type="number" name="eid" /></td>
             </tr>
             <tr>
-                <td>Client ID</td>
-                <td><input type="text" name="cid" /></td>
+                <td>Client ID: </td>
+                <td><input type="number" name="cid" /></td>
             </tr>
             <tr>
-                <td>Slot Date</td>
+                <td>Slot Date:</td>
                 <td><input type="date" name="sdate" /></td>
             </tr>
             <tr>
-                <td>Slot Time</td>
+                <td>Slot Time:</td>
                 <td><input type="time" name="stime" /></td>
             </tr>
             <tr>
@@ -110,7 +110,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="booking"></input><input
+                <td><input type="submit" value="Confirm"></input><input
                         type="reset" value="Reset"></input></td>
             </tr>
         </table>
