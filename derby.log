@@ -1,14 +1,14 @@
-Tue Dec 15 16:52:59 GMT 2020 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+Tue Dec 15 21:35:36 GMT 2020 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Tue Dec 15 16:53:07 GMT 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0176-6751-c15a-ffffb43d6815 
-on database directory C:\Users\harry\Documents\GitHub\ESD - Group Project\ESD\SmartCare with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
-Loaded from file:/E:/Java%20SDK%208/jdk1.8.0_111/db/lib/derby.jar
+Tue Dec 15 21:35:55 GMT 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0176-6854-7fd7-000065fe385c 
+on database directory C:\Users\kamil\Documents\GitHub\ESD\SmartCare with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
+Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_111/db/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_111-b14
-user.dir=E:\Java SDK 8\jdk1.8.0_111\db
+user.dir=C:\Program Files\Java\jdk1.8.0_111\db
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
-derby.system.home=C:\Users\harry\Documents\GitHub\ESD - Group Project\ESD
+derby.system.home=C:\Users\kamil\Documents\GitHub\ESD
 Database Class Loader started - derby.database.classpath=''
