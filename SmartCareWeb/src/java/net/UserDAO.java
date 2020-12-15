@@ -13,7 +13,7 @@ import java.sql.*;
  */
 public class UserDAO {
 
-    public User checkLogin(String uname, String passwd, String email) throws SQLException,
+    public User checkLogin(String uname, String passwd) throws SQLException,
             ClassNotFoundException {
         
         Connection con = null; //conection to the database
@@ -31,7 +31,6 @@ public class UserDAO {
         if (result.next()) {
             user = new User();
             user.setRole(result.getString("role"));
-            user.setEmail(result.getString("email"));
             user.setUname(uname);
         }
 
