@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author harry
+ * @author Harry Marsh
  */
 @WebServlet("/role")
 public class UserRoleServlet extends HttpServlet {
@@ -29,24 +29,24 @@ public class UserRoleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        if (User.role.equals("admin")) {
+        if (User.role.equals("admin")) { //checks users role and depending on role redirects to their client area
 
-            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.admin.jsp");
+            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.admin.jsp"); //gives the request the peramiter of the page
             RequetsDispatcherObj.forward(request, response);
         }
-        if (User.role.equals("doctor")) {
+        if (User.role.equals("doctor")) { //checks users role and depending on role redirects to their client area
 
-            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.doctor.jsp");
+            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.doctor.jsp"); //gives the request the peramiter of the page
             RequetsDispatcherObj.forward(request, response);
         }
-        if (User.role.equals("nurse")) {
+        if (User.role.equals("nurse")) { //checks users role and depending on role redirects to their client area
 
-            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.nurse.jsp");
+            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.nurse.jsp"); //gives the request the peramiter of the page
             RequetsDispatcherObj.forward(request, response);
         }
-        if (User.role.equals("client")) {
+        if (User.role.equals("client")) { //checks users role and depending on role redirects to their client area
 
-            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.client.jsp");
+            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.client.jsp"); //gives the request the peramiter of the page
             RequetsDispatcherObj.forward(request, response);
         }
     }

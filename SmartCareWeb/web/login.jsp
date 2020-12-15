@@ -52,6 +52,7 @@
     <body>
         <div class="topnav">
             <a class="title left">SmartCare Web Page</a>
+            <a class="right" href="index.jsp">Home</a>
         </div>
 
         <div style="text-align: center">

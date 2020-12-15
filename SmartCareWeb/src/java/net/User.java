@@ -7,14 +7,15 @@ package net;
 
 /**
  *
- * @author harry
+ * @author Harry Marsh
  */
 public class User {
 
     private String uname;
     public static String role;
     private String passwd;
-
+    private String email;
+    
     public String getUname() {
         return uname;
     }
@@ -25,6 +26,10 @@ public class User {
 
     public String getPasswd() {
         return passwd;
+    }
+    
+    public String getEmail() {
+        return email;
     }
 
     public void setUname(String uname) {
@@ -37,6 +42,10 @@ public class User {
 
     public void setPasswd(String passwd) {
         this.passwd = passwd;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

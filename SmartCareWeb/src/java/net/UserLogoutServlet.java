@@ -14,7 +14,7 @@ import javax.servlet.http.*;
 
 /**
  *
- * @author harry
+ * @author Harry Marsh
  */
 @WebServlet("/logout")
 public class UserLogoutServlet extends HttpServlet {
@@ -28,10 +28,10 @@ public class UserLogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
-        if (session != null) {
+        if (session != null) { //removes all details about user when logged out so unable to access areas without login
             session.removeAttribute("user");
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp"); //returns to main page
             dispatcher.forward(request, response);
         }
     }

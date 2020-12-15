@@ -67,7 +67,7 @@
         <div class="topnav">
             <a class="title left">SmartCare Web Page</a>
             <div class="right">
-                <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
+                <a class ="title2"> Welcome ${user.uname}! (role: ${user.role} email: ${user.email})</a>
                 <a href = "http://localhost:8080/SmartCareWeb/role">Client Area</a>
                 <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
             </div>
