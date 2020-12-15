@@ -12,3 +12,8 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\kamil\Documents\GitHub\ESD
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Tue Dec 15 21:39:51 GMT 2020: Shutting down Derby engine
+----------------------------------------------------------------
+Tue Dec 15 21:39:51 GMT 2020:
+Shutting down instance a816c00e-0176-6854-7fd7-000065fe385c on database directory C:\Users\kamil\Documents\GitHub\ESD\SmartCare with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
