@@ -75,7 +75,7 @@
         </div>
 
         <div style="text-align: center">
-            <h1>Welcome to SmartCare Home Page</h1>
+            <h1>Welcome to SmartCare Website Admin Panel</h1>
             <h2>Please select your role below!</h2>
             <br><br>
         </div>

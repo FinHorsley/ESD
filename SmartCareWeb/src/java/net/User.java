@@ -28,10 +28,6 @@ public class User {
         return passwd;
     }
     
-    public String getEmail() {
-        return email;
-    }
-
     public void setUname(String uname) {
         this.uname = uname;
     }
@@ -44,8 +40,4 @@ public class User {
         this.passwd = passwd;
     }
     
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
 }

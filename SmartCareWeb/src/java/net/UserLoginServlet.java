@@ -30,11 +30,10 @@ public class UserLoginServlet extends HttpServlet {
         
         String uname = request.getParameter("uname"); //geting data from the users database
         String passwd = request.getParameter("passwd"); //geting data from the users database
-        String email = request.getParameter("email");
         UserDAO userDao = new UserDAO();
 
         try {
-            User user = userDao.checkLogin(uname, passwd, email);
+            User user = userDao.checkLogin(uname, passwd);
             String destPage = "login.jsp";
 
             if (user != null) {
