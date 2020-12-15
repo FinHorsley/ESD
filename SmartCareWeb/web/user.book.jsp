@@ -1,13 +1,15 @@
 <%-- 
-    Document   : home
-    Created on : 10-Dec-2020, 14:05:07
-    Author     : harry
+    Document   : user.book
+    Created on : 15-Dec-2020, 16:32:12
+    Author     : kamil
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <title>SmartCare Website</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             body {
@@ -30,21 +32,13 @@
             }
             .left {
                 float: left;
-                padding-top: 14px;
-                padding-right: 16px;
             }
 
             .right {
                 float: right;
-                padding-top: 14px;
-                padding-right: 16px;
             }
             .topnav a:hover {
                 background-color: #D2D1C4;
-                color: black;
-            }
-            .topnav buttons {
-                background-color: #A99E9E;
                 color: black;
             }
 
@@ -53,33 +47,26 @@
                 color: black;
                 font-size: 20px;
             }
-            .topnav a.title2 {
-                background-color: #DFDED2;
-                color: black;
-                font-size: 12px;
-            }
         </style>
-        <meta charset="utf-8">
-        <title>Admin CPanel - SmartCare</title>
     </head>
     <body>
-
         <div class="topnav">
             <a class="title left">SmartCare Web Page</a>
-            <div class="right">
-                <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
-                <a href = "http://localhost:8080/SmartCareWeb/role">Client Area</a>
-                <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
-                <a href = "http://localhost:8080/SmartCareWeb/book">Book Consultations</a>
-                
-            </div>
-
         </div>
 
         <div style="text-align: center">
-            <h1>Welcome to SmartCare Website Client Panel</h1>
-            <h2>Please select your role below!</h2>
-            <br><br>
+            <h1>Login</h1>
+            <form action="book" method="post">
+                <label for="uname">Username:</label>
+                <input name="uname" size="30" />
+                <br><br>
+                <label for="passwd">Password:</label>
+                <input type="password" name="passwd" size="30" />
+                <br>${message}
+                <br><br>           
+                <button type="submit">Login</button>
+            </form>
         </div>
     </body>
 </html>
+
