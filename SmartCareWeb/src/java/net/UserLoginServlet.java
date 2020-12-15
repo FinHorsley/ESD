@@ -14,7 +14,7 @@ import javax.servlet.http.*;
 
 /**
  *
- * @author harry
+ * @author Harry Marsh
  */
 @WebServlet("/login")
 public class UserLoginServlet extends HttpServlet {
@@ -28,20 +28,21 @@ public class UserLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String uname = request.getParameter("uname");
-        String passwd = request.getParameter("passwd");
+        String uname = request.getParameter("uname"); //geting data from the users database
+        String passwd = request.getParameter("passwd"); //geting data from the users database
+        String email = request.getParameter("email");
         UserDAO userDao = new UserDAO();
 
         try {
-            User user = userDao.checkLogin(uname, passwd);
+            User user = userDao.checkLogin(uname, passwd, email);
             String destPage = "login.jsp";
 
             if (user != null) {
                 HttpSession session = request.getSession();
-                session.setAttribute("user", user);
+                session.setAttribute("user", user); //cheacking data inputed vs data stored in the database
                 destPage = "home.jsp";
             } else {
-                String message = "Invalid username/password";
+                String message = "Invalid username/password"; //if input is not the same as database attribute output an error
                 request.setAttribute("message", message);
             }
 

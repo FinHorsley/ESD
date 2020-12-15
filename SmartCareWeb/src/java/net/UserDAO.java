@@ -9,22 +9,20 @@ import java.sql.*;
 
 /**
  *
- * @author harry
+ * @author Harry Marsh
  */
 public class UserDAO {
 
-    public User checkLogin(String uname, String passwd) throws SQLException,
+    public User checkLogin(String uname, String passwd, String email) throws SQLException,
             ClassNotFoundException {
-        String jdbcURL = "jdbc:derby://localhost:1527/SmartCare";
-        String dbUser = "Harry";
-        String dbPassword = "123";
-
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
-        String sql = "select * from users where uname=? and passwd=?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, uname);
+        
+        Connection con = null; //conection to the database
+        con = DBConnection.createConnection(); //using the java class DBConnection to connnect to db
+        String sql = "select * from users where uname=? and passwd=?"; //query for collecting data from the database.
+        PreparedStatement statement = con.prepareStatement(sql);
+        statement.setString(1, uname); 
         statement.setString(2, passwd);
+        
 
         ResultSet result = statement.executeQuery();
 
@@ -33,10 +31,11 @@ public class UserDAO {
         if (result.next()) {
             user = new User();
             user.setRole(result.getString("role"));
+            user.setEmail(result.getString("email"));
             user.setUname(uname);
         }
 
-        connection.close();
+        con.close();
 
         return user;
     }
