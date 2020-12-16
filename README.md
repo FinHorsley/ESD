@@ -1,5 +1,6 @@
 # Enterprise System Development-SmartCare Web Application
 
+[![GitHub Stars](https://img.shields.io/github/stars/IgorAntun/node-chat.svg)](https://github.com/IgorAntun/node-chat/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/IgorAntun/node-chat.svg)](https://github.com/IgorAntun/node-chat/issues)
 
 ## Group s/03 Project for ESD!
 
@@ -7,10 +8,10 @@
 ## Table of contents
 * [General info](#general-info)
 * [Task Requirment Forms](#Task-Requirment-Forms)
-* [Software and lib used](Software-and-lib-used)
+* [Software and lib used](#software-and-lib-used)
 
 ## General info
-This project is simple Lorem ipsum dolor generator.
+
 
 ## Software and lib used
 Project is created with:
