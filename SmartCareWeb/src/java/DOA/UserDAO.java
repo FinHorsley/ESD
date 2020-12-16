@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net;
+package DOA;
 
+import bean.UserBean;
 import java.sql.*;
 
 /**
@@ -13,7 +14,7 @@ import java.sql.*;
  */
 public class UserDAO {
 
-    public User checkLogin(String uname, String passwd) throws SQLException,
+    public UserBean checkLogin(String uname, String passwd) throws SQLException,
             ClassNotFoundException {
         
         Connection con = null; //conection to the database
@@ -26,10 +27,10 @@ public class UserDAO {
 
         ResultSet result = statement.executeQuery();
 
-        User user = null;
+        UserBean user = null;
 
         if (result.next()) {
-            user = new User();
+            user = new UserBean();
             user.setRole(result.getString("role"));
             user.setUname(uname);
         }

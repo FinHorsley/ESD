@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net;
+package servlet;
 
+import bean.UserBean;
+import DOA.UserDAO;
 import java.io.*;
 import java.sql.SQLException;
 
@@ -33,7 +35,7 @@ public class UserLoginServlet extends HttpServlet {
         UserDAO userDao = new UserDAO();
 
         try {
-            User user = userDao.checkLogin(uname, passwd);
+            UserBean user = userDao.checkLogin(uname, passwd);
             String destPage = "login.jsp";
 
             if (user != null) {

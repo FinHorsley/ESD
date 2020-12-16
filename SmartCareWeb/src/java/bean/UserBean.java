@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net;
+package bean;
 
 /**
  *
  * @author Harry Marsh
  */
-public class User {
+public class UserBean {
 
     private String uname;
     public static String role;

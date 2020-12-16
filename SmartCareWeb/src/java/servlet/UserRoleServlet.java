@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net;
+package servlet;
 
+import bean.UserBean;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,22 +30,22 @@ public class UserRoleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        if (User.role.equals("admin")) { //checks users role and depending on role redirects to their client area
+        if (UserBean.role.equals("admin")) { //checks users role and depending on role redirects to their client area
 
             RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.admin.jsp"); //gives the request the peramiter of the page
             RequetsDispatcherObj.forward(request, response);
         }
-        if (User.role.equals("doctor")) { //checks users role and depending on role redirects to their client area
+        if (UserBean.role.equals("doctor")) { //checks users role and depending on role redirects to their client area
 
             RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.doctor.jsp"); //gives the request the peramiter of the page
             RequetsDispatcherObj.forward(request, response);
         }
-        if (User.role.equals("nurse")) { //checks users role and depending on role redirects to their client area
+        if (UserBean.role.equals("nurse")) { //checks users role and depending on role redirects to their client area
 
             RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.nurse.jsp"); //gives the request the peramiter of the page
             RequetsDispatcherObj.forward(request, response);
         }
-        if (User.role.equals("client")) { //checks users role and depending on role redirects to their client area
+        if (UserBean.role.equals("client")) { //checks users role and depending on role redirects to their client area
 
             RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/user.client.jsp"); //gives the request the peramiter of the page
             RequetsDispatcherObj.forward(request, response);
