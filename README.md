@@ -1,6 +1,6 @@
 # Enterprise System Development-SmartCare Web Application
 
-### Group s/03 Project for ESD!
+### Group 19 Project for ESD!
 
 
 ## Table of contents
