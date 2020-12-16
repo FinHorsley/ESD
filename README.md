@@ -2,7 +2,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/IgorAntun/node-chat.svg)](https://github.com/IgorAntun/node-chat/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/IgorAntun/node-chat.svg)](https://github.com/IgorAntun/node-chat/issues)
 
-## Group s/03 Project for ESD!
+### Group s/03 Project for ESD!
 
 
 ## Table of contents
