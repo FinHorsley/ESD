@@ -6,4 +6,4 @@
 </p>
 
 <h4> Task Delivery Forms<h4>
-  
+  <a href = "http://localhost:8080/SmartCareWeb/logout"></a>
