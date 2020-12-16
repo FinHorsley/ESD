@@ -1,7 +1,5 @@
 # Enterprise System Development-SmartCare Web Application
 
-[![GitHub Stars](https://img.shields.io/github/stars/IgorAntun/node-chat.svg)](https://github.com/FinHorsley/ESD/issues/stargazers) [![GitHub Issues](https://img.shields.io/github.com/FinHorsley/ESD/issues.svg)](https://github.com/FinHorsley/ESD/issues/issues)
-
 ### Group s/03 Project for ESD!
 
 
