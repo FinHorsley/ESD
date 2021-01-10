@@ -9,10 +9,10 @@
 hs_err_pid*
 
 # netbeans
-nbproject/*
 nbproject/private/
-!nbproject/project.properties
-!nbproject/project.xml
+#nbproject/private/
+#!nbproject/project.properties
+#!nbproject/project.xml
 build/
 nbbuild/
 dist/
