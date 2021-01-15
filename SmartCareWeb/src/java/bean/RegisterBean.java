@@ -11,7 +11,9 @@ package bean;
  */
 public class RegisterBean {
 
-    private String email;
+    private String name;
+    private String address;
+    private String type;
     private String uname;
     private String passwd;
 
@@ -31,11 +33,27 @@ public class RegisterBean {
         this.passwd = passwd;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getName() {
+        return name;
+    }
+    
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+    
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
     }
 }
