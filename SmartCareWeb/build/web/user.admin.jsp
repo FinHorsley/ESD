@@ -58,26 +58,45 @@
                 color: black;
                 font-size: 12px;
             }
-        </style>
-        <meta charset="utf-8">
-        <title>Admin CPanel - SmartCare</title>
-    </head>
-    <body>
+            table, th, td {
+                border: 1px solid black;
+            </style>
+            <meta charset="utf-8">
+            <title>Admin CPanel - SmartCare</title>
+        </head>
+        <body>
 
-        <div class="topnav">
-            <a class="title left">SmartCare Web Page</a>
-            <div class="right">
-                <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
-                <a href = "http://localhost:8080/SmartCareWeb/role">Client Area</a>
-                <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+            <div class="topnav">
+                <a class="title left">SmartCare Web Page</a>
+                <div class="right">
+                    <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
+                    <a href = "http://localhost:8080/SmartCareWeb/role">Client Area</a>
+                    <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+                </div>
+
             </div>
 
-        </div>
-
-        <div style="text-align: center">
-            <h1>Welcome to SmartCare Website Admin Panel</h1>
-            <h2>Please select your role below!</h2>
-            <br><br>
-        </div>
-    </body>
-</html>
+            <div style="text-align: center">
+                    <h1>Welcome to SmartCare Website Admin Panel</h1>
+                    <h2>Please select your role below!</h2>
+                    <br><br>
+                </div>
+                    
+                    
+                <div>    
+                    <h2>non-approved Staff accounts:</h2>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Occupation</th>    
+                        </tr>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>john.doe@example.com</td>    
+                            <td>123-45-678</td>
+                        </tr>
+                    </table>
+                </div>
+            </body>
+        </html>
