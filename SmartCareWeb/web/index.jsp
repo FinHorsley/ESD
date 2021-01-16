@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="bean.UserBean"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,7 +49,13 @@
         </style>
     </head>
     <body>
+<%
+UserBean user = null;
+user = new UserBean();
+user.setRole("NoUser");
 
+
+%>
         <div class="topnav">
             <a class="title left">SmartCare Web Page</a>
             <a class="right" href="login.jsp">Login</a>

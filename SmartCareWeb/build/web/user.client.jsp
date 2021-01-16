@@ -4,6 +4,7 @@
     Author     : harry
 --%>
 
+<%@page import="bean.UserBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -63,7 +64,22 @@
         <title>Admin CPanel - SmartCare</title>
     </head>
     <body>
+<%
+                        
+                        if (UserBean.role.equals("NoUser")) { //checks users role and depending on role redirects to their client area
 
+                        RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/index.jsp"); //gives the request the peramiter of the page
+                        RequetsDispatcherObj.forward(request, response);
+                        
+                        }
+                        else if (!UserBean.role.equals("client")){
+                            
+                            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
+                            RequetsDispatcherObj.forward(request, response);
+                        
+                        }
+                    
+                    %> 
         <div class="topnav">
             <a class="title left">SmartCare Web Page</a>
             <div class="right">
