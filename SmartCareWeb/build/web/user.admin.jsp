@@ -101,30 +101,22 @@
 
                         ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE (role = 'Not Approved: Doctor' or role = 'Not Approved: Nurse')"); %>
                         
-                    <%
-                        
-                        if (UserBean.role.equals("NoUser")) { //checks users role and depending on role redirects to their client area
+                        <%
 
-                        RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/index.jsp"); //gives the request the peramiter of the page
-                        RequetsDispatcherObj.forward(request, response);
-                        
-                        }
-                        else if (!UserBean.role.equals("admin")){
-                            
-                            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
-                            RequetsDispatcherObj.forward(request, response);
-                        
-                        }
-                    
-                    %>    
-                        
+                            if (UserBean.role.equals("NoUser")) { //checks users role and depending on role redirects to their client area
 
-                        ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE (role = 'Not Approved: Doctor' or role = 'Not Approved: Nurse')");
+                                RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/index.jsp"); //gives the request the peramiter of the page
+                                RequetsDispatcherObj.forward(request, response);
 
-                    %>
+                            } else if (!UserBean.role.equals("admin")) {
 
+                                RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
+                                RequetsDispatcherObj.forward(request, response);
 
+                            }
 
+                        %>    
+                       
                     <h2>non-approved Staff accounts:</h2>
                     <table>
                         <tbody>
