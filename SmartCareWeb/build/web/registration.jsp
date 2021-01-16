@@ -84,6 +84,17 @@
                 text-overflow: ellipsis;
                 padding: 0 1em;
             }
+            select {
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+                font-size: 15px;
+                border-radius: 3px;
+                border: 0;
+                margin-top: 10px;
+                width: 300px;
+                height: 40px;
+                text-overflow: ellipsis;
+                padding: 0 1em;
+            }
 
 
             ::-webkit-input-placeholder {
@@ -107,6 +118,8 @@
             {
                 var name = document.form.name.value;
                 var username = document.form.uname.value;
+                var address = document.form.address.value;
+                var type = document.form.type.value;
                 var passwd = document.form.passwd.value;
                 var conpasswd = document.form.conpasswd.value;
 
@@ -119,7 +132,20 @@
                 {
                     alert("Username can't be blank");
                     return false;
-                } else if (passwd.length < 6)
+                }else if (address === null || address === "")
+                {
+                    alert("Type can't be blank");
+                    return false;
+                }else if (type === null || type === "")
+                {
+                    alert("Username can't be blank");
+                    return false;
+                }
+                else if (passwd === null || passwd === "")
+                {
+                    alert("Password can't be blank");
+                    return false;
+                }else if (passwd.length < 6)
                 {
                     alert("Password must be at least 6 characters long.");
                     return false;
@@ -210,9 +236,12 @@
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtaj_5ZLCTnn5iGxYZMh7zogDTwxlTN6Y&libraries=places&callback=initMap"></script>
                 </td>
             </tr>
-                        <tr>
+            <tr>
                 <td>Enter Type</td>
-                <td><input  type="text" name="type" placeholder="NHS or private"/></td>
+                <td><select name="type">
+                        <option value="NHS">NHS</option>
+                        <option value="private">Private</option>
+                    </select></td>
             </tr>
             <tr>
             <tr>
@@ -225,7 +254,7 @@
             </tr>
             <tr>
                     <td><%=(request.getAttribute("errMessage") == null) ? ""
-                            : request.getAttribute("errMessage")%></td>
+                        : request.getAttribute("errMessage")%></td>
             </tr>
             <tr>
                 <td></td>
