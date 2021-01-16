@@ -4,6 +4,11 @@
     Author     : harry
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="DOA.DBConnection"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -58,26 +63,62 @@
                 color: black;
                 font-size: 12px;
             }
-        </style>
-        <meta charset="utf-8">
-        <title>Admin CPanel - SmartCare</title>
-    </head>
-    <body>
+            table, th, td {
+                border: 1px solid black;
+                 
+            </style>
+            <meta charset="utf-8">
+            <title>Admin CPanel - SmartCare</title>
+        </head>
+        <body>
 
-        <div class="topnav">
-            <a class="title left">SmartCare Web Page</a>
-            <div class="right">
-                <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
-                <a href = "http://localhost:8080/SmartCareWeb/role">Client Area</a>
-                <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+            <div class="topnav">
+                <a class="title left">SmartCare Web Page</a>
+                <div class="right">
+                    <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
+                    <a href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
+                    <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+                </div>
+
             </div>
 
-        </div>
+            <div style="text-align: center">
+                    <h1>Welcome to SmartCare Website Admin Panel</h1>
+                    <h2>Please select your role below!</h2>
+                    <br><br>
+                </div>
 
-        <div style="text-align: center">
-            <h1>Welcome to SmartCare Website Admin Panel</h1>
-            <h2>Please select your role below!</h2>
-            <br><br>
-        </div>
-    </body>
-</html>
+
+                <div>   
+
+                    <%
+                        Connection con = null; //conection to the database
+                        con = DBConnection.createConnection(); //using the java class DBConnection to connnect to db
+                        Statement stmt = con.createStatement();
+                        ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE (role = 'Not Approved: Doctor' or role = 'Not Approved: Nurse')"); %>
+                        
+                        
+                        
+
+                    <h2>non-approved Staff accounts:</h2>
+                    <table>
+                        <tbody>
+                            
+
+                            <tr style ="padding-right: 40px">
+                                <th style ="padding-right: 40px">Name</th>
+                                <th style ="padding-right: 40px">Username</th>
+                                <th style ="padding-right: 40px">Occupation</th>    
+                            </tr>
+                            <% while (rs.next()) {%>
+                            <tr style ="padding-right: 40px">
+                                <td style ="padding-right: 40px">na</td>
+                                <td style ="padding-right: 40px"><%=rs.getString("uname")%></td>   
+                                <td style ="padding-right: 40px"><%=rs.getString("role")%></td>
+                            </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </body>
+        </html>

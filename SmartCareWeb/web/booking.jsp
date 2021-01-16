@@ -50,33 +50,79 @@
                 color: black;
                 font-size: 20px;
             }
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #my-input-searchbox {
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+                font-size: 15px;
+                border-radius: 3px;
+                border: 0;
+                margin-top: 10px;
+                width: 270px;
+                height: 40px;
+                text-overflow: ellipsis;
+                padding: 0 1em;
+            }
+            input[type = text], input[type = password] input[type = number] input[type = date] input[type = time]{
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+                font-size: 15px;
+                border-radius: 3px;
+                border: 0;
+                margin-top: 10px;
+                width: 270px;
+                height: 40px;
+                text-overflow: ellipsis;
+                padding: 0 1em;
+            }
+
+
+            ::-webkit-input-placeholder {
+                text-align: center;
+            }
+
+            :-moz-placeholder { /* Firefox 18- */
+                text-align: center;  
+            }
+
+            ::-moz-placeholder {  /* Firefox 19+ */
+                text-align: center;  
+            }
+
+            :-ms-input-placeholder {  
+                text-align: center; 
+            }
         </style>
         <script>
             function validate()
             {
-                var email = document.form.email.value;
-                var username = document.form.uname.value;
-                var passwd = document.form.passwd.value;
-                var conpasswd = document.form.conpasswd.value;
+                var eid = document.form.eid.value;
+                var cid = document.form.cid.value;
+                var sdate = document.form.sdate.value;
+                var stime = document.form.stime.value;
 
 
-                if (email === null || email === "")
+                if (eid === null || eid === "")
                 {
-                    alert("Email can't be blank");
+                    alert("Employee ID can't be blank");
                     return false;
-                } else if (uname === null || username === "")
+                } else if (cid === null || cid === "")
                 {
-                    alert("Username can't be blank");
+                    alert("Client ID can't be blank");
                     return false;
-                } else if (passwd.length < 6)
+                } else if (sdate === null || sdate === "")
                 {
-                    alert("Password must be at least 6 characters long.");
+                    alert("Slot Time can't be blank");
                     return false;
-                } else if (passwd != conpasswd)
+                } else if (stime === null || stime === "")
                 {
-                    alert("Confirm Password should match with the Password");
+                    alert("Slot Date can't be blank");
                     return false;
                 }
+
             }
         </script> 
     </head>
@@ -106,7 +152,7 @@
             </tr>
             <tr>
                     <td><%=(request.getAttribute("errMessage") == null) ? ""
-                            : request.getAttribute("errMessage")%></td>
+                        : request.getAttribute("errMessage")%></td>
             </tr>
             <tr>
                 <td></td>

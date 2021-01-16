@@ -19,7 +19,7 @@ public class EmployeeUserRegisterDAO {
     public String EmployeeregisterUser(EmployeeRegisterBean registerBean) {
         String userName = registerBean.geteUserName();
         String password = registerBean.getePassword();
-        String role = registerBean.geteType();
+        String role = "Not Approved: " + registerBean.geteType();
 
         Connection con = null;
         PreparedStatement preparedStatement = null;
