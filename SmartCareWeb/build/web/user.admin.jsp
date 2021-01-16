@@ -4,6 +4,11 @@
     Author     : harry
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="DOA.DBConnection"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -60,6 +65,7 @@
             }
             table, th, td {
                 border: 1px solid black;
+                 
             </style>
             <meta charset="utf-8">
             <title>Admin CPanel - SmartCare</title>
@@ -70,7 +76,7 @@
                 <a class="title left">SmartCare Web Page</a>
                 <div class="right">
                     <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
-                    <a href = "http://localhost:8080/SmartCareWeb/role">Client Area</a>
+                    <a href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
                     <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
                 </div>
 
@@ -81,21 +87,37 @@
                     <h2>Please select your role below!</h2>
                     <br><br>
                 </div>
-                    
-                    
-                <div>    
+
+
+                <div>   
+
+                    <%
+                        Connection con = null; //conection to the database
+                        con = DBConnection.createConnection(); //using the java class DBConnection to connnect to db
+                        Statement stmt = con.createStatement();
+                        ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE (role = 'Not Approved: Doctor' or role = 'Not Approved: Nurse')"); %>
+                        
+                        
+                        
+
                     <h2>non-approved Staff accounts:</h2>
                     <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Username</th>
-                            <th>Occupation</th>    
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>john.doe@example.com</td>    
-                            <td>123-45-678</td>
-                        </tr>
+                        <tbody>
+                            
+
+                            <tr style ="padding-right: 40px">
+                                <th style ="padding-right: 40px">Name</th>
+                                <th style ="padding-right: 40px">Username</th>
+                                <th style ="padding-right: 40px">Occupation</th>    
+                            </tr>
+                            <% while (rs.next()) {%>
+                            <tr style ="padding-right: 40px">
+                                <td style ="padding-right: 40px">na</td>
+                                <td style ="padding-right: 40px"><%=rs.getString("uname")%></td>   
+                                <td style ="padding-right: 40px"><%=rs.getString("role")%></td>
+                            </tr>
+                            <%}%>
+                        </tbody>
                     </table>
                 </div>
             </body>
