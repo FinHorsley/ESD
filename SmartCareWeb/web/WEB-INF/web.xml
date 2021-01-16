@@ -37,6 +37,20 @@
         <servlet-name>UserLogoutServlet</servlet-name>
         <url-pattern>/UserLogoutServlet.do</url-pattern>
     </servlet-mapping> 
+    
+    
+     <servlet>
+        <description>
+        </description>
+        <display-name>hidden</display-name>
+        <servlet-name>hidden</servlet-name>
+        <jsp-file>/WEB-INF/user.admin.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>hidden</servlet-name>
+        <url-pattern>/hidden</url-pattern>
+    </servlet-mapping>
 
     <session-config>
         <session-timeout>5</session-timeout>

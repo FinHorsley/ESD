@@ -10,6 +10,8 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="DOA.DBConnection"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="bean.UserBean"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -91,15 +93,35 @@
 
 
                 <div>   
-
+                               
                     <%
                         Connection con = null; //conection to the database
                         con = DBConnection.createConnection(); //using the java class DBConnection to connnect to db
                         Statement stmt = con.createStatement();
+
+                        ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE (role = 'Not Approved: Doctor' or role = 'Not Approved: Nurse')"); %>
+                        
+                    <%
+                        
+                        if (UserBean.role.equals("NoUser")) { //checks users role and depending on role redirects to their client area
+
+                        RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/index.jsp"); //gives the request the peramiter of the page
+                        RequetsDispatcherObj.forward(request, response);
+                        
+                        }
+                        else if (!UserBean.role.equals("admin")){
+                            
+                            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
+                            RequetsDispatcherObj.forward(request, response);
+                        
+                        }
+                    
+                    %>    
+                        
+
                         ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE (role = 'Not Approved: Doctor' or role = 'Not Approved: Nurse')");
 
                     %>
-
 
 
                     <h2>non-approved Staff accounts:</h2>
