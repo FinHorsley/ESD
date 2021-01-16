@@ -80,6 +80,6 @@
             <h2>Please select your role below!</h2>
             <br><br>
         </div>
-        <p href = "http://localhost:8080/SmartCareWeb/booking.jsp">booking</p>
+        <a href = "http://localhost:8080/SmartCareWeb/booking.jsp">booking</a>
     </body>
 </html>
