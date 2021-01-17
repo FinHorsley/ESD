@@ -8,94 +8,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="SmartCare.css"> 
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Register</title>
     <head>
         <meta charset="utf-8">
         <title>SmartCare Website</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
 
-            .topnav {
-                overflow: hidden;
-                background-color: #DFDED2;
-            }
-
-            .topnav a {
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-                color: black;
-            }
-            .left {
-                float: left;
-            }
-
-            .right {
-                float: right;
-            }
-            .topnav a:hover {
-                background-color: #D2D1C4;
-                color: black;
-            }
-
-            .topnav a.title {
-                background-color: #DFDED2;
-                color: black;
-                font-size: 20px;
-            }
-            body {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-
-            #my-input-searchbox {
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-                font-size: 15px;
-                border-radius: 3px;
-                border: 0;
-                margin-top: 10px;
-                width: 270px;
-                height: 40px;
-                text-overflow: ellipsis;
-                padding: 0 1em;
-            }
-            input[type = text], input[type = password] input[type = number] input[type = date] input[type = time]{
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-                font-size: 15px;
-                border-radius: 3px;
-                border: 0;
-                margin-top: 10px;
-                width: 270px;
-                height: 40px;
-                text-overflow: ellipsis;
-                padding: 0 1em;
-            }
-
-
-            ::-webkit-input-placeholder {
-                text-align: center;
-            }
-
-            :-moz-placeholder { /* Firefox 18- */
-                text-align: center;  
-            }
-
-            ::-moz-placeholder {  /* Firefox 19+ */
-                text-align: center;  
-            }
-
-            :-ms-input-placeholder {  
-                text-align: center; 
-            }
-        </style>
         <script>
             function validate()
             {

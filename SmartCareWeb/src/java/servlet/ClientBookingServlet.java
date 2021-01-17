@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package servlet;
-import bean.BookingBean;
+import beans.BookingBean;
 import DOA.BookingDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
