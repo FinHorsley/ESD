@@ -4,13 +4,14 @@
     Author     : harry
 --%>
 
+<%@page import="java.sql.SQLException"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="DOA.DBConnection"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="bean.UserBean"%>
+<%@page import="beans.UserBean"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -74,6 +75,21 @@
             <title>Admin CPanel - SmartCare</title>
         </head>
         <body>
+            <%
+
+                if (UserBean.role.equals("NoUser")) { //checks users role and depending on role redirects to their client area
+
+                    RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/index.jsp"); //gives the request the peramiter of the page
+                    RequetsDispatcherObj.forward(request, response);
+
+                } else if (!UserBean.role.equals("admin")) {
+
+                    RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
+                    RequetsDispatcherObj.forward(request, response);
+
+                }
+
+            %>  
 
             <div class="topnav">
                 <a class="title left">SmartCare Web Page</a>
@@ -93,62 +109,98 @@
 
 
                 <div>   
-                               
-                    <%
-                        Connection con = null; //conection to the database
-                        con = DBConnection.createConnection(); //using the java class DBConnection to connnect to db
-                        Statement stmt = con.createStatement();
 
-                        ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE (role = 'Not Approved: Doctor' or role = 'Not Approved: Nurse')"); %>
-                        
-                        <%
+                </div>
 
-                            if (UserBean.role.equals("NoUser")) { //checks users role and depending on role redirects to their client area
+                <div id="contentBox" style="margin:0px auto; width:70%">
 
-                                RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/index.jsp"); //gives the request the peramiter of the page
-                                RequetsDispatcherObj.forward(request, response);
-
-                            } else if (!UserBean.role.equals("admin")) {
-
-                                RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
-                                RequetsDispatcherObj.forward(request, response);
-
-                            }
-
-                        %>    
-                       
+                    <!-- columns divs, float left, no margin so there is no space between column, width=1/3 -->
+                    <div id="column1" style="float:left; margin:0; width:33%;">
                     <h2>non-approved Staff accounts:</h2>
-                    <table>
-                        <tbody>
+                </div>
+
+                <div id="column2" style="float:left; margin:0;width:33%;">
+                    <h2>non-approved Staff accounts:</h2>
+                </div>
+
+                <div id="column3" style="float:left; margin:0;width:33%">
+                        <h2>Remove Client Account:</h2>
+                        <%!
+                            public class Client {
+
+                                Connection con = null;
+                                PreparedStatement selectClient = null;
+                                PreparedStatement deleteClient = null;
+                                ResultSet resultSet = null;
+
+                                public Client() {
+                                    try {
+                                        con = DBConnection.createConnection();
+
+                                        selectClient = con.prepareStatement("SELECT uname, passwd, role FROM users");
+                                        selectClient = con.prepareStatement("DELETE FROM users WHERE uname =?");
+
+                                    } catch (SQLException e) {
+                                    }
+                                }
+
+                                public ResultSet getClient() {
+                                    try {
+                                        resultSet = selectClient.executeQuery();
+                                    } catch (SQLException e) {
+                                    }
+                                    return resultSet;
+                                }
+
+                                public int deleteClient(Integer id) {
+                                    int result = 0;
+
+                                    try {
+                                        deleteClient.setInt(1, id);
+                                        result = deleteClient.executeUpdate();
+                                    } catch (SQLException e) {
+                                    }
+                                    return result;
+                                }
+                            }
+                        %>
+                        <%
+                            int result = 0;
+                            Client client = new Client();
+                            ResultSet clients = client.getClient();
+
+                            Integer clientId = new Integer(0);
+
+                            if (request.getParameter("submit") != null) {
+                                clientId = Integer.parseInt(request.getParameter("client"));
+                                result = client.deleteClient(clientId);
+                            }
+                        %>
+
+                        <form name="Clients" action="user.admin.jsp" method="POST">
+                            <table border="0">
+                                <tbody>
+                                    <tr>
+                                        <td>Clients Username: </td>
+                                        <%while (clients.next()) {%>
+                                        <td><select name="client">
+                                                <option value="<%= clients.getInt("client_id")%>"><%= clients.getString("uname")%></option>
+                                                <%}%>
+                                            </select></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </form>
 
 
-                            <tr style ="padding-right: 40px">
-                                <th style ="padding-right: 40px">Username</th>
-                                <th style ="padding-right: 40px">Occupation</th>    
-                            </tr>
-                            <% ArrayList<String> UserNames = new ArrayList<String>();
 
-                                while (rs.next()) {
-                                    UserNames.add(rs.getString("uname"));
-                            %>
-                            <tr style ="padding-right: 40px">
-                                <td style ="padding-right: 40px"><%=rs.getString("uname")%></td>   
-                                <td style ="padding-right: 40px"><%=rs.getString("role")%></td>
-                            </tr>
-                            <%}%>
-                        </tbody>
-                    </table>
-                    <form>
-                        <select name=”User”>
-                            <% int total = UserNames.size();
 
-                                for (int i = 1; i <= total; ++i) {
-                            %>
-                            <option value=”purple”>Name</option>
-                            <%}%>
-                    </form>
-                </select> 
 
-            </div>
-        </body>
-    </html>
+
+
+
+                    </div>
+                </div>
+            </body>
+        </html>

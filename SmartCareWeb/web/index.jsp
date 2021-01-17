@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="bean.UserBean"%>
+<%@page import="beans.UserBean"%>
 <!DOCTYPE html>
 <html>
     <head>

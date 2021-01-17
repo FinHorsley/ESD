@@ -5,7 +5,7 @@
  */
 package DOA;
 
-import bean.UserBean;
+import beans.UserBean;
 import java.sql.*;
 
 /**

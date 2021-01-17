@@ -5,8 +5,8 @@
  */
 package DOA;
 
-import bean.EmployeeRegisterBean;
-import bean.RegisterBean;
+import beans.EmployeeRegisterBean;
+import beans.RegisterBean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

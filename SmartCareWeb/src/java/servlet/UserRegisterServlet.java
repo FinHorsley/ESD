@@ -6,7 +6,7 @@
 package servlet;
 
 import DOA.ClientRegisterDAO;
-import bean.RegisterBean;
+import beans.RegisterBean;
 import DOA.RegisterDao;
 import java.io.IOException;
 import javax.servlet.ServletException;
