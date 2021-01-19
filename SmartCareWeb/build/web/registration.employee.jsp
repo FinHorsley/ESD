@@ -11,102 +11,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Register</title>
     <head>
+        <link rel="stylesheet" type="text/css" href="SmartCare.css"> 
         <meta charset="utf-8">
         <title>SmartCare Website</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
 
-            .topnav {
-                overflow: hidden;
-                background-color: #DFDED2;
-            }
-
-            .topnav a {
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-                color: black;
-            }
-            .left {
-                float: left;
-            }
-
-            .right {
-                float: right;
-            }
-            .topnav a:hover {
-                background-color: #D2D1C4;
-                color: black;
-            }
-
-            .topnav a.title {
-                background-color: #DFDED2;
-                color: black;
-                font-size: 20px;
-            }
-
-            #map {
-                height: 100%;
-            }
-
-            html,
-            body {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-
-            #my-input-searchbox {
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-                font-size: 15px;
-                border-radius: 3px;
-                border: 0;
-                margin-top: 10px;
-                width: 270px;
-                height: 40px;
-                text-overflow: ellipsis;
-                padding: 0 1em;
-            }
-            input[type = text], input[type = password] {
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-                font-size: 15px;
-                border-radius: 3px;
-                border: 0;
-                margin-top: 10px;
-                width: 270px;
-                height: 40px;
-                text-overflow: ellipsis;
-                padding: 0 1em;
-            }
-
-
-            ::-webkit-input-placeholder {
-                text-align: center;
-            }
-
-            :-moz-placeholder { /* Firefox 18- */
-                text-align: center;  
-            }
-
-            ::-moz-placeholder {  /* Firefox 19+ */
-                text-align: center;  
-            }
-
-            :-ms-input-placeholder {  
-                text-align: center; 
-            }
-        </style>
         <script>
             function validate()
             {
                 var name = document.form.name.value;
                 var username = document.form.uname.value;
+                var address = document.form.address.value;
+                var type = document.form.type.value;
                 var passwd = document.form.passwd.value;
                 var conpasswd = document.form.conpasswd.value;
 
@@ -118,6 +34,18 @@
                 } else if (uname === null || username === "")
                 {
                     alert("Username can't be blank");
+                    return false;
+                } else if (address === null || address === "")
+                {
+                    alert("Type can't be blank");
+                    return false;
+                } else if (type === null || type === "")
+                {
+                    alert("Username can't be blank");
+                    return false;
+                } else if (passwd === null || passwd === "")
+                {
+                    alert("Password can't be blank");
                     return false;
                 } else if (passwd.length < 6)
                 {
@@ -188,7 +116,7 @@
     </head>
     <body>
         <div class="topnav">
-            <a class="title left">SmartCare Web Page</a>
+            <a class="title left">Employee Registration</a>
             <a class="right" href="index.jsp">Home</a>
         </div>
     <center><h2>Registration </h2></center>
@@ -209,10 +137,12 @@
                     <div id="map"></div>
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtaj_5ZLCTnn5iGxYZMh7zogDTwxlTN6Y&libraries=places&callback=initMap"></script>
                 </td>
-            </tr>
-                        <tr>
-                <td>Enter occupation</td>
-                <td><input  type="text" name="type" placeholder="Doctor or Nurse"/></td>
+            <tr>
+                <td>Enter Type</td>
+                <td><select name="type">
+                        <option value="doctor">Doctor</option>
+                        <option value="nurse">Nurse</option>
+                    </select></td>
             </tr>
             <tr>
             <tr>
@@ -225,7 +155,7 @@
             </tr>
             <tr>
                     <td><%=(request.getAttribute("errMessage") == null) ? ""
-                            : request.getAttribute("errMessage")%></td>
+                        : request.getAttribute("errMessage")%></td>
             </tr>
             <tr>
                 <td></td>

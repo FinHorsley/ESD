@@ -8,64 +8,35 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="SmartCare.css"> 
         <meta charset="utf-8">
         <title>SmartCare Website</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
-            .topnav {
-                overflow: hidden;
-                background-color: #DFDED2;
-            }
-
-            .topnav a {
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-                color: black;
-            }
-            .left {
-                float: left;
-            }
-
-            .right {
-                float: right;
-            }
-            .topnav a:hover {
-                background-color: #D2D1C4;
-                color: black;
-            }
-
-            .topnav a.title {
-                background-color: #DFDED2;
-                color: black;
-                font-size: 20px;
-            }
-        </style>
     </head>
     <body>
         <div class="topnav">
-            <a class="title left">SmartCare Web Page</a>
+            <a class="title left">Login</a>
             <a class="right" href="index.jsp">Home</a>
         </div>
 
         <div style="text-align: center">
             <h1>Login</h1>
+
             <form action="login" method="post">
-                <label for="uname">Username:</label>
-                <input name="uname" size="30" />
-                <br><br>
-                <label for="passwd">Password:</label>
-                <input type="password" name="passwd" size="30" />
-                <br>${message}
+                <table align="center">
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" name="uname" size="30" placeholder="Enter UserName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="passwd" size="30" placeholder="Enter Password" /></td>
+                    </tr>
+                </table>
+                ${message}
                 <br><br>           
                 <button type="submit">Login</button>
+                <br>
             </form>
         </div>
     </body>
