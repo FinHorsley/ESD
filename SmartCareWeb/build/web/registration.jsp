@@ -197,11 +197,11 @@
         <table align="center">
             <tr>
                 <td>Enter Full Name</td>
-                <td><input  type="text" name="name" placeholder="Enter Full Name" /></td>
+                <td><input maxlength="32" type="text" name="name" placeholder="Enter Full Name" /></td>
             </tr>
             <tr>
                 <td>Enter Username</td>
-                <td><input  type="text" name="uname" placeholder="Enter Username"/></td>
+                <td><input maxlength="10" type="text" name="uname" placeholder="Enter Username"/></td>
             </tr>
             <tr>
                 <td>Enter Address</td>  
@@ -217,11 +217,11 @@
             <tr>
             <tr>
                 <td>Enter Password</td>
-                <td><input  type="password" name="passwd" placeholder="Enter Password"/></td>
+                <td><input maxlength="10" type="password" name="passwd" placeholder="Enter Password"/></td>
             </tr>
             <tr>
                 <td>Confirm Password</td>
-                <td><input  type="password" name="conpasswd" placeholder="Confirm Password"/></td>
+                <td><input maxlength="10" type="password" name="conpasswd" placeholder="Confirm Password"/></td>
             </tr>
             <tr>
                     <td><%=(request.getAttribute("errMessage") == null) ? ""

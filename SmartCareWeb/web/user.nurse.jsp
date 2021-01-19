@@ -86,6 +86,7 @@
                 <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
                 <a href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
                 <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+                <a href = "http://localhost:8080/SmartCareWeb/create.invoice.jsp">Billing Centre</a>
             </div>
 
         </div>
