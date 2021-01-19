@@ -4,7 +4,7 @@
     Author     : harry
 --%>
 
-<%@page import="bean.UserBean"%>
+<%@page import="beans.UserBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -142,10 +142,9 @@
         <div class="topnav">
             <a class="title left">SmartCare Web Page</a>
             <div class="right">
-                <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
-                <a href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
-                <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
-                <a href = "http://localhost:8080/SmartCareWeb/create.invoice.jsp">Billing Centre</a>
+                <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
+                <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+                <a class="right" href = "http://localhost:8080/SmartCareWeb/create.invoice.jsp">Billing Centre</a>
             </div>
 
         </div>
@@ -156,8 +155,7 @@
             <br><br>
         </div>
     <center>
-        <div
-            style= "background-color:beige;width:500px;height:180px;border:25px solid #F5F5DC;"><u><b>Invoice Form</b></u>
+        <div style= "background-color:beige;width:500px;height:180px;border:25px solid #F5F5DC;"><u><b>Invoice Form</b></u>
 
             <form name="form" action="invoice" method="post">
                 <table align="center">

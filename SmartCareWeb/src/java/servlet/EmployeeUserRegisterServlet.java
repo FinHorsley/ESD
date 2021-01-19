@@ -58,7 +58,7 @@ public class EmployeeUserRegisterServlet extends HttpServlet {
         } else if ((!userRegistered.equals("SUCCESS")) && ClientRegistered.equals("SUCCESS")) //On Failure, display a meaningful message to the User.
         {
             request.setAttribute("errMessage", userRegistered);
-            request.getRequestDispatcher("/registration.jsp").forward(request, response);
+            request.getRequestDispatcher("/registration.employee.jsp").forward(request, response);
         }
         
     }

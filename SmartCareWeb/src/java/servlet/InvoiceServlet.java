@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package servlet;
-import bean.InvoiceBean;
+import beans.InvoiceBean;
 import DOA.InvoiceDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
