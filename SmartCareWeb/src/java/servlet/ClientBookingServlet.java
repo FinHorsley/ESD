@@ -28,12 +28,14 @@ public class ClientBookingServlet extends HttpServlet {
          String eid = request.getParameter("eid");
          String slotDate = request.getParameter("sdate");
          String slotTime = request.getParameter("stime");
+         String Reason = request.getParameter("sreason");
          
          BookingBean BookingBean = new BookingBean();
         //Using Java Beans - An easiest way to play with group of related data
          BookingBean.setEid(eid);
          BookingBean.setSdate(slotDate);
          BookingBean.setStime(slotTime);
+         BookingBean.setSreason(Reason);
          
          BookingDAO BookingDAO = new BookingDAO();
          
