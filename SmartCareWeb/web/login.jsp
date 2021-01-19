@@ -15,7 +15,7 @@
     </head>
     <body>
         <div class="topnav">
-            <a class="title left">SmartCare Web Page</a>
+            <a class="title left">Login</a>
             <a class="right" href="index.jsp">Home</a>
         </div>
 

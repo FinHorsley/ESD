@@ -22,7 +22,7 @@ user.setRole("NoUser");
 
 %>
         <div class="topnav">
-            <a class="title left">SmartCare Web Page</a>
+            <a class="title left">SmartCare</a>
             <a class="right" href="login.jsp">Login</a>
             <a class="right" href="registration.jsp">Register</a>
             <a class="right" href="registration.employee.jsp">Register Employee</a>

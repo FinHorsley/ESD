@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="SmartCare.css">  
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
-        <title>Admin CPanel - SmartCare</title>
+        <title>Nurse CPanel - SmartCare</title>
     </head>
     <body>
         <%
@@ -33,17 +33,16 @@
 
         %> 
         <div class="topnav">
-            <a class="title left">SmartCare Web Page</a>
+            <a class="title left">Nurse Control Panel</a>
             <div class="right">
-                <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
-                <a href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
-                <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+            <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+            <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
             </div>
 
         </div>
 
         <div style="text-align: center">
-            <h1>Welcome to SmartCare Website Nurse Panel</h1>
+            <h1>Nurse Control Panel</h1>
             <h2>Please select your role below!</h2>
             <br><br>
 

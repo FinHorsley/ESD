@@ -33,6 +33,11 @@ body {
     color: black;
     font-size: 20px;
 }
+.topnav a.title1 {
+    background-color: #DFDED2;
+    color: black;
+    font-size: 17px;
+}
 body {
     height: 100%;
     margin: 0;
