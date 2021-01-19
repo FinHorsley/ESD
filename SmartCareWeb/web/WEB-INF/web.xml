@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 
+    <filter>
+        <filter-name>AuthorisationFilter</filter-name>
+        <filter-class>filter.AuthorisationFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>RequestFilter</filter-name>
+        <filter-class>filter.LoggingFilterRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthorisationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>RequestFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>UserLoginServlet</servlet-name>
+        <servlet-class>servlet.UserLoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserLogoutServlet</servlet-name>
+        <servlet-class>servlet.UserLogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InvoiceServlet</servlet-name>
+        <servlet-class>servlet.InvoiceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserLoginServlet</servlet-name>
+        <url-pattern>/UserLoginServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserLogoutServlet</servlet-name>
+        <url-pattern>/UserLogoutServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description>
+        </description>
+        <display-name>hidden</display-name>
+        <servlet-name>hidden</servlet-name>
+        <jsp-file>/WEB-INF/user.admin.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>hidden</servlet-name>
+        <url-pattern>/hidden</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InvoiceServlet</servlet-name>
+        <url-pattern>/InvoiceServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>5</session-timeout>
     </session-config>
