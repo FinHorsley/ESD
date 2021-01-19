@@ -333,13 +333,6 @@
                         </table>
                         <input type="submit" value="Delete User" name="submit" />
                     </form>
-
-
-
-
-
-
-
                 </div>
             </div>
         </div>
