@@ -26,14 +26,12 @@ public class ClientBookingServlet extends HttpServlet {
      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Copying all the input parameters in to local variables
          String eid = request.getParameter("eid");
-         String cid = request.getParameter("cid");
          String slotDate = request.getParameter("sdate");
          String slotTime = request.getParameter("stime");
          
          BookingBean BookingBean = new BookingBean();
         //Using Java Beans - An easiest way to play with group of related data
          BookingBean.setEid(eid);
-         BookingBean.setCid(cid);
          BookingBean.setSdate(slotDate);
          BookingBean.setStime(slotTime);
          

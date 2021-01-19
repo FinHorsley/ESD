@@ -4,6 +4,14 @@
     Author     : harry & kamil
 --%>
 
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="DOA.DBConnection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,7 +57,7 @@
     <body>
         <div class="topnav">
             <a class="title left">Book an Appointment</a>
-            <a class="right" href="index.jsp">Home</a>
+            <a class="right" href="home.jsp">Home</a>
         </div>
     <center><h2>Consultation Booking </h2></center>
     <form name="form" action="booking" method="post" onsubmit="return validate()">
@@ -71,8 +79,8 @@
                 <td><input type="time" name="stime" /></td>
             </tr>
             <tr>
-                    <td><%=(request.getAttribute("errMessage") == null) ? ""
-                        : request.getAttribute("errMessage")%></td>
+                <td><%=(request.getAttribute("errMessage") == null) ? ""
+                            : request.getAttribute("errMessage")%></td>
             </tr>
             <tr>
                 <td></td>
