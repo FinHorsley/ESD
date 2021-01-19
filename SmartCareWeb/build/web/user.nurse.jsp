@@ -4,97 +4,104 @@
     Author     : harry
 --%>
 
-<%@page import="bean.UserBean"%>
+<%@page import="java.sql.*"%>
+<%@page import="DOA.DBConnection"%>
+<%@page import="beans.UserBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="SmartCare.css">  
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
-            .topnav {
-                overflow: hidden;
-                background-color: #DFDED2;
-            }
-
-            .topnav a {
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-                color: black;
-            }
-            .left {
-                float: left;
-                padding-top: 14px;
-                padding-right: 16px;
-            }
-
-            .right {
-                float: right;
-                padding-top: 14px;
-                padding-right: 16px;
-            }
-            .topnav a:hover {
-                background-color: #D2D1C4;
-                color: black;
-            }
-            .topnav buttons {
-                background-color: #A99E9E;
-                color: black;
-            }
-
-            .topnav a.title {
-                background-color: #DFDED2;
-                color: black;
-                font-size: 20px;
-            }
-            .topnav a.title2 {
-                background-color: #DFDED2;
-                color: black;
-                font-size: 12px;
-            }
-        </style>
         <meta charset="utf-8">
-        <title>Admin CPanel - SmartCare</title>
+        <title>Nurse CPanel - SmartCare</title>
     </head>
     <body>
-<%
-                        
-                        if (UserBean.role.equals("NoUser")) { //checks users role and depending on role redirects to their client area
+        <%
 
-                        RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/index.jsp"); //gives the request the peramiter of the page
-                        RequetsDispatcherObj.forward(request, response);
-                        
-                        }
-                        else if (!UserBean.role.equals("nurse")){
-                            
-                            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
-                            RequetsDispatcherObj.forward(request, response);
-                        
-                        }
-                    
-                    %> 
+            if (UserBean.role.equals("NoUser")) { //checks users role and depending on role redirects to their client area
+
+                RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/index.jsp"); //gives the request the peramiter of the page
+                RequetsDispatcherObj.forward(request, response);
+
+            } else if (!UserBean.role.equals("nurse")) {
+
+                RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
+                RequetsDispatcherObj.forward(request, response);
+
+            }
+
+        %> 
         <div class="topnav">
-            <a class="title left">SmartCare Web Page</a>
+            <a class="title left">Nurse Control Panel</a>
             <div class="right">
+
                 <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
                 <a href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
                 <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
                 <a href = "http://localhost:8080/SmartCareWeb/create.invoice.jsp">Billing Centre</a>
+
+            <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+            <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
+
             </div>
 
         </div>
 
         <div style="text-align: center">
-            <h1>Welcome to SmartCare Website Nurse Panel</h1>
+            <h1>Nurse Control Panel</h1>
             <h2>Please select your role below!</h2>
             <br><br>
+
+            <table align="center" cellpadding="5" cellspacing="5" border="1">
+                <tr>
+
+                </tr>
+                <tr>
+                    <td><b>SID</b></td>
+                    <td><b>EID</b></td>
+                    <td><b>CID</b></td>
+                    <td><b>SDATE</b></td>
+                    <td><b>STIME</b></td>
+                </tr>
+                <%    try {
+                        Connection con = null;
+                        Statement statement = null;
+                        ResultSet resultSet = null;
+                        con = DBConnection.createConnection();
+
+                        statement = con.createStatement();
+                        String sql = "SELECT * FROM booking_slots";
+
+                        resultSet = statement.executeQuery(sql);
+                        while (resultSet.next()) {
+                %>
+                <tr>
+
+                    <td><%=resultSet.getString("sid")%></td>
+                    <td><%=resultSet.getString("eid")%></td>
+                    <td><%=resultSet.getString("cid")%></td>
+                    <td><%=resultSet.getString("sdate")%></td>
+                    <td><%=resultSet.getString("stime")%></td>
+
+                </tr>
+
+                <%
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                %>
+            </table>
+
+
+
+
+
+
+
+
         </div>
     </body>
 </html>

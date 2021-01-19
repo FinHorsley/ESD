@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package DOA;
-import bean.BookingBean;
+import beans.BookingBean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

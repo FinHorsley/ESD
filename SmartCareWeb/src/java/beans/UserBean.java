@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bean;
+package beans;
 
 /**
  *
@@ -11,10 +11,9 @@ package bean;
  */
 public class UserBean {
 
-    private String uname;
+    public static String uname;
     public static String role;
     private String passwd;
-    private String email;
     
     public String getUname() {
         return uname;
