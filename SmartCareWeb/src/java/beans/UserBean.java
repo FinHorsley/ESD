@@ -11,7 +11,7 @@ package beans;
  */
 public class UserBean {
 
-    private String uname;
+    public static String uname;
     public static String role;
     private String passwd;
     

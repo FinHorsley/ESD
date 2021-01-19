@@ -17,18 +17,18 @@
     <body>
 
         <div class="topnav">
-            <a class="title left">SmartCare Web Page</a>
+            <a class="title left">SmartCare Home Page</a>
             <div class="right">
-                <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
-                <a href = "http://localhost:8080/SmartCareWeb/role">Client Area</a>
-                <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+                <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+                <a class="right" href = "http://localhost:8080/SmartCareWeb/role">Client Area</a>           
+                
             </div>
 
         </div>
 
         <div style="text-align: center">
-            <h1>Welcome to SmartCare Home Page</h1>
-            <h2>Please select your role below!</h2>
+            <h1>SmartCare Home Page</h1>
+            <h2>Welcome ${user.uname}</h2>
             <br><br>
         </div>
     </body>

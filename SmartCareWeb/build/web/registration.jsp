@@ -117,7 +117,7 @@
     </head>
     <body>
         <div class="topnav">
-            <a class="title left">SmartCare Web Page</a>
+            <a class="title left">Client Registration</a>
             <a class="right" href="index.jsp">Home</a>
         </div>
     <center><h2>Registration </h2></center>

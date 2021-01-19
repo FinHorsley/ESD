@@ -27,7 +27,6 @@ public class UserRoleServlet extends HttpServlet {
         super();
     }
 
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         if (UserBean.role.equals("admin")) { //checks users role and depending on role redirects to their client area
