@@ -35,14 +35,12 @@
         <div class="topnav">
             <a class="title left">Nurse Control Panel</a>
             <div class="right">
-
                 <a class ="title2"> Welcome ${user.uname}! (role: ${user.role})</a>
                 <a href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
                 <a href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
                 <a href = "http://localhost:8080/SmartCareWeb/create.invoice.jsp">Billing Centre</a>
             <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
             <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
-
             </div>
 
         </div>

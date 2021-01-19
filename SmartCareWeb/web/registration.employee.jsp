@@ -159,8 +159,10 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Register"></input><input
-                        type="reset" value="Reset"></input></td>
+                <td>
+                    <input type="submit" value="Register"></input>
+                    <input type="reset" value="Reset"></input>
+                </td>
             </tr>
         </table>
     </form>
