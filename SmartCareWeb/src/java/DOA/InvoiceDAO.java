@@ -5,7 +5,7 @@
  */
 package DOA;
 
-import bean.InvoiceBean;
+import beans.InvoiceBean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
