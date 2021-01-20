@@ -40,6 +40,7 @@
 
             <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
             <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
+            <a class="right" href = "http://localhost:8080/SmartCareWeb/view.invoice.jsp">View Invoices</a>
 
 
         </div>
