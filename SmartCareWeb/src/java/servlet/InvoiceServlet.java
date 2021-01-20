@@ -25,19 +25,19 @@ public class InvoiceServlet extends HttpServlet {
  
      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Copying all the input parameters in to local variables
-         String ClientName = request.getParameter("clientname");
-         String ClientID = request.getParameter("clientid");
-         String ClientAddress = request.getParameter("clientaddress");
-         String ConsultationType = request.getParameter("consultationtype");
-         String ConsultationTime = request.getParameter("consultationtime");
+         String EmployeeID = request.getParameter("EmployeeChoice");
+         String ClientID = request.getParameter("ClientChoice");
+         String SlotID = request.getParameter("SlotChoice");
+         
+         System.out.println("EID = "+EmployeeID );
+         System.out.println("CID = "+ClientID );
+         System.out.println("SID = "+SlotID );
          
          InvoiceBean InvoiceBean = new InvoiceBean();
         //Using Java Beans - An easiest way to play with group of related data
-         InvoiceBean.setClientName(ClientName);
-         InvoiceBean.setClientID(ClientID);
-         InvoiceBean.setClientAddress(ClientAddress);
-         InvoiceBean.setConsultationType(ConsultationType);
-         InvoiceBean.setConsultationTime(ConsultationTime);
+         InvoiceBean.setEID(EmployeeID);
+         InvoiceBean.setCID(ClientID);
+         InvoiceBean.setSID(SlotID);
          
          InvoiceDAO InvoiceDAO = new InvoiceDAO();
          

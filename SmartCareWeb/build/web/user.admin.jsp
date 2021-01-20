@@ -173,7 +173,7 @@
                                     con5 = DBConnection.createConnection();
 
                                     selectEmployee = con5.prepareStatement("SELECT uname, passwd, role FROM users WHERE role ='Not Approved: doctor' or role ='Not Approved: nurse' ");
-                                    deleteEmployee = con5.prepareStatement("DELETE FROM users WHERE uname =?");
+                                    
 
                                 } catch (SQLException e) {
                                 }

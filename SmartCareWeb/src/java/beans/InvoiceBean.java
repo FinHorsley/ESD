@@ -11,53 +11,41 @@ package beans;
  */
 public class InvoiceBean {
     
-    private String ClientName;
-    private String ClientID;
-    private String ClientAddress;
-    private String ConsultationType;
-    private String ConsultationTime;
+    private String IID;
+    private String EID;
+    private String CID;
+    private String SID;
 
-    public String getClientName() {
-        return ClientName;
+    public String getIID() {
+        return IID;
     }
 
-    public void setClientName(String ClientName) {
-        this.ClientName = ClientName;
+    public void setIID(String IID) {
+        this.IID = IID;
     }
 
-    public String getClientID() {
-        return ClientID;
+    public String getEID() {
+        return EID;
     }
 
-    public void setClientID(String ClientID) {
-        this.ClientID = ClientID;
+    public void setEID(String EID) {
+        this.EID = EID;
     }
 
-    public String getClientAddress() {
-        return ClientAddress;
+    public String getCID() {
+        return CID;
     }
 
-    public void setClientAddress(String ClientAddress) {
-        this.ClientAddress = ClientAddress;
+    public void setCID(String CID) {
+        this.CID = CID;
     }
 
-    public String getConsultationType() {
-        return ConsultationType;
+    public String getSID() {
+        return SID;
     }
 
-    public void setConsultationType(String ConsultationType) {
-        this.ConsultationType = ConsultationType;
+    public void setSID(String SID) {
+        this.SID = SID;
     }
 
-    public String getConsultationTime() {
-        return ConsultationTime;
-    }
-
-    public void setConsultationTime(String ConsultationTime) {
-        this.ConsultationTime = ConsultationTime;
-    }
-
-    
-
-    
 }
