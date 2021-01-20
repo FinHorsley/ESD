@@ -43,8 +43,6 @@
 
 
         </div>
-
-        <a href = "http://localhost:8080/SmartCareWeb/booking.jsp">booking</a>
     </body>
 
     </div>
