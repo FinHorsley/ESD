@@ -60,11 +60,49 @@
             <a class="right" href="home.jsp">Home</a>
         </div>
     <center><h2>Consultation Booking </h2></center>
+    
+        <%!
+            public class Employee {
+
+                Connection con6 = null;
+                PreparedStatement selectEmployee = null;
+                ResultSet resultSet2 = null;
+
+                public Employee() {
+                    try {
+                        con6 = DBConnection.createConnection();
+
+                        selectEmployee = con6.prepareStatement("SELECT * FROM employee");
+
+                    } catch (SQLException e) {
+                    }
+                }
+
+                public ResultSet getInClient() {
+                    try {
+                        resultSet2 = selectEmployee.executeQuery();
+                    } catch (SQLException e) {
+                    }
+                    return resultSet2;
+                }
+            }
+        %>
+
+        <%
+            Employee employee = new Employee();
+            ResultSet Employee = employee.getInClient();
+        %> 
+        
     <form name="form" action="booking" method="post" onsubmit="return validate()">
+
         <table align="center">
             <tr>
                 <td>Employee Id: </td>
-                <td><input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3" type="number" name="eid" /></td>
+                <td><select name="EmployeeChoice">
+                        <%while (Employee.next()) {%>
+                        <option value="<%= Employee.getString("eid")%>"><%= Employee.getString("ename")%></option>
+                        <%}%>
+                    </select></td>
             </tr>
             <tr>
                 <td>Slot Date:</td>
