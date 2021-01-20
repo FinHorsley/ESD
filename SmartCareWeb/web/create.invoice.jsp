@@ -4,6 +4,14 @@
     Author     : harry
 --%>
 
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="DOA.DBConnection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="beans.UserBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -161,36 +169,90 @@
                 <table align="center">
                     <tr></tr>
                     <tr>
-                        <td>Enter Client Full Name: </td>
-                        <td><input maxlength="22" type="text" name="clientname" placeholder="Enter Full Name" /></td>
+                        <td>Employee ID: </td>
+                        <td>
+                           <%!
+                        public class Employee {
+
+                            Connection con5 = null;
+                            PreparedStatement selectEmployee = null;
+                            PreparedStatement deleteEmployee = null;
+                            ResultSet resultSet1 = null;
+
+                            public Employee() {
+                                try {
+                                    con5 = DBConnection.createConnection();
+
+                                    selectEmployee = con5.prepareStatement("SELECT * FROM employee");
+                                    
+
+                                } catch (SQLException e) {
+                                }
+                            }
+
+                            public ResultSet getEmployee() {
+                                try {
+                                    resultSet1 = selectEmployee.executeQuery();
+                                } catch (SQLException e) {
+                                }
+                                return resultSet1;
+                            }
+                        }
+                    %>
+                    <%
+                        Employee employee = new Employee();
+                        ResultSet Employee = employee.getEmployee();
+                        Connection con4 = null;
+                        Statement stmt4 = null;
+                        Connection con5 = null;
+                        Statement stmt5 = null;
+                        if (request.getParameter("submit1") != null) {
+
+                            con4 = DBConnection.createConnection();
+                            con5 = DBConnection.createConnection();
+
+                            try {
+                                stmt4 = con4.createStatement();
+                              
+
+                            } catch (SQLException ex) {
+
+                            }
+
+                        }
+                    %>
+
+                    <form name="Clients" action="user.admin.jsp" method="POST">
+                        <table align="center" border="0">
+                            <tbody>
+                                <tr>
+                                    
+                                    <td><select name="EmployeeChoice">
+                                            <%while (Employee.next()) {%>
+                                            <option value="<%= Employee.getString("eid")%>"><%= Employee.getString("ename")%></option>
+                                            <%}%>
+                                        </select></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </form>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Enter Client ID: </td>
-                        <td><input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3" type="number" name="clientid" placeholder="Enter Client ID"/></td>
+                        <td>Client ID: </td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td>Enter Client Address: </td>  
-                        <td><input id="my-input-searchbox" type="text" placeholder="Enter Address" name ="clientaddress">
+                        <td>Slot ID: </td>  
+                        <td><input id="my-input-searchbox" type="text" placeholder="Enter slot ID" name ="clientaddress">
                             <div id="map"></div>
                             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtaj_5ZLCTnn5iGxYZMh7zogDTwxlTN6Y&libraries=places&callback=initMap"></script>
                         </td>
                     </tr>
                     <tr>
-                        <td>Enter Consultation Type: </td>
-                        <td><select name="consultationtype" id="type">
-                                <option value="NHS">NHS</option>
-                                <option value="Private">Private</option>   
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td>Enter Consultation Time: </td>
-                        <td><input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength ="2" type="number" name="consultationtime" placeholder="Minutes"/></td>
-                    </tr>
-
-                    
-                    <tr>
                         <td></td>
-                        <td><input type="submit" value="Generate Invoice">
+                        <td><input type="submit" value="Approve User" name="submit1" />
                         <input type="reset" value="Reset">
                     </tr>
                 </table>
