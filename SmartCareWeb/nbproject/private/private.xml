@@ -3,13 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-
-            <file>file:/C:/Users/harry/Documents/GitHub/ESD%20-%20Group%20Project/ESD/SmartCareWeb/web/booking.jsp</file>
-            <file>file:/C:/Users/harry/Documents/GitHub/ESD%20-%20Group%20Project/ESD/SmartCareWeb/web/user.admin.jsp</file>
-            <file>file:/C:/Users/harry/Documents/GitHub/ESD%20-%20Group%20Project/ESD/SmartCareWeb/web/user.client.jsp</file>
-
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/src/java/DOA/InvoiceDAO.java</file>
-
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/servlet/ClientBookingServlet.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/beans/UserBean.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/DOA/UserDAO.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/beans/RegisterBean.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/beans/BookingBean.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/DOA/BookingDAO.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/DOA/DBConnection.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/servlet/UserLoginServlet.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/web/login.jsp</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/beans/PrescriptionBean.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/DOA/EmployeeUserRegisterDAO.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/DOA/PrescriptionDAO.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/DOA/ClientRegisterDAO.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/beans/InvoiceBean.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/DOA/EmployeeRegisterDAO.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/src/java/DOA/RegisterDao.java</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/web/booking.jsp</file>
+            <file>file:/Users/finhorsley/Documents/Uni/ESD/ESD/SmartCareWeb/web/home.jsp</file>
         </group>
     </open-files>
 </project-private>

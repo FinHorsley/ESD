@@ -21,8 +21,8 @@ public final class PrescriptionDAO {
             ps.setString(2, prescription.getMedicine());
             ps.setInt(3, prescription.getQuantity());
             ps.setBoolean(4, prescription.getRepeating());
-            ps.setDate(5, prescription.getIssueDate());
-            ps.setDate(6, prescription.getEndDate());
+            ps.setString(5, prescription.getIssueDate());
+            ps.setString(6, prescription.getEndDate());
             ps.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -46,8 +46,8 @@ public final class PrescriptionDAO {
                             rs.getString(3),
                             rs.getInt(4),
                             rs.getBoolean(5),
-                            rs.getDate(6),
-                            rs.getDate(7)
+                            rs.getString(6),
+                            rs.getString(7)
                     );
 
                     rs.close();

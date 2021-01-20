@@ -5,8 +5,6 @@
  */
 package beans;
 
-import java.sql.*;
-
 /**
  *
  * @author finhorsley
@@ -17,11 +15,21 @@ public class PrescriptionBean {
     private final String medicine;
     private final Integer quantity;
     private final Boolean repeating;
-    private final Date issueDate;
-    private final Date endDate;
+    private final String issueDate;
+    private final String endDate;
     
-    public PrescriptionBean(Integer ID, String cId, String medicine, int quantity, Boolean repeating, Date issueDate, Date endDate){
+    public PrescriptionBean(Integer ID, String cId, String medicine, int quantity, Boolean repeating, String issueDate, String endDate){
         this.ID = ID;
+        this.cId = cId;
+        this.medicine = medicine;
+        this.quantity = quantity;
+        this.repeating = repeating;
+        this.issueDate = issueDate;
+        this.endDate = endDate;
+    }
+    
+    public PrescriptionBean(String cId, String medicine, int quantity, Boolean repeating, String issueDate, String endDate){
+        this.ID = null;
         this.cId = cId;
         this.medicine = medicine;
         this.quantity = quantity;
@@ -50,11 +58,11 @@ public class PrescriptionBean {
         return repeating;
     }
 
-    public Date getIssueDate() {
+    public String getIssueDate() {
         return issueDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 }
