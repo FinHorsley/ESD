@@ -25,7 +25,7 @@ public class ClientBookingServlet extends HttpServlet {
  
      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Copying all the input parameters in to local variables
-         String eid = request.getParameter("eid");
+         String eid = request.getParameter("EmployeeChoice");
          String slotDate = request.getParameter("sdate");
          String slotTime = request.getParameter("stime");
          String Reason = request.getParameter("sreason");

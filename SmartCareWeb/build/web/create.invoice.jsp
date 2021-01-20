@@ -17,62 +17,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
-            .topnav {
-                overflow: hidden;
-                background-color: #DFDED2;
-            }
-
-            .topnav a {
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-                color: black;
-            }
-            .left {
-                float: left;
-                padding-top: 14px;
-                padding-right: 16px;
-            }
-
-            .right {
-                float: right;
-                padding-top: 14px;
-                padding-right: 16px;
-            }
-            .topnav a:hover {
-                background-color: #D2D1C4;
-                color: black;
-            }
-            .topnav buttons {
-                background-color: #A99E9E;
-                color: black;
-            }
-
-            .topnav a.title {
-                background-color: #DFDED2;
-                color: black;
-                font-size: 20px;
-            }
-            .topnav a.title2 {
-                background-color: #DFDED2;
-                color: black;
-                font-size: 12px;
-            }
-            .middle {
-                display: table-cell;
-                vertical-align: middle;
-            }
-        </style>
-                
+        <link rel="stylesheet" type="text/css" href="SmartCare.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">              
         <%-- 
             code Segment   : Start of google map Api import
         --%>
@@ -130,21 +76,20 @@
     </head>
     <body>
         <%
-                        
-                        if (UserBean.role.equals("NoUser")) { //checks users role and depending on role redirects to their client area
 
-                        RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/index.jsp"); //gives the request the peramiter of the page
-                        RequetsDispatcherObj.forward(request, response);
-                        
-                        }
-                        else if (!UserBean.role.equals("nurse")){
-                            
-                            RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
-                            RequetsDispatcherObj.forward(request, response);
-                        
-                        }
-                    
-                    %> 
+            if (UserBean.role.equals("NoUser")) { //checks users role and depending on role redirects to their client area
+
+                RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/index.jsp"); //gives the request the peramiter of the page
+                RequetsDispatcherObj.forward(request, response);
+
+            } else if (!UserBean.role.equals("nurse")) {
+
+                RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
+                RequetsDispatcherObj.forward(request, response);
+
+            }
+
+        %> 
 
 
         <div class="topnav">
@@ -163,102 +108,147 @@
             <br><br>
         </div>
     <center>
-        <div style= "background-color:beige;width:500px;height:180px;border:25px solid #F5F5DC;"><u><b>Invoice Form</b></u>
+        <div style= "background-color:beige;width:500px;height:200px;border:25px solid #F5F5DC;"><u><b>Invoice Form</b></u>
+            <table align="center">
+                <tr></tr>
+                <tr>
+                    <td>
+                        <%!
+                            public class InEmployee {
 
-            <form name="form" action="invoice" method="post">
-                <table align="center">
-                    <tr></tr>
-                    <tr>
-                        <td>Employee ID: </td>
-                        <td>
-                           <%!
-                        public class Employee {
+                                Connection con5 = null;
+                                PreparedStatement selectEmployee = null;
+                                ResultSet resultSet1 = null;
 
-                            Connection con5 = null;
-                            PreparedStatement selectEmployee = null;
-                            PreparedStatement deleteEmployee = null;
-                            ResultSet resultSet1 = null;
+                                public InEmployee() {
+                                    try {
+                                        con5 = DBConnection.createConnection();
 
-                            public Employee() {
-                                try {
-                                    con5 = DBConnection.createConnection();
+                                        selectEmployee = con5.prepareStatement("SELECT * FROM employee");
 
-                                    selectEmployee = con5.prepareStatement("SELECT * FROM employee");
-                                    
+                                    } catch (SQLException e) {
+                                    }
+                                }
 
-                                } catch (SQLException e) {
+                                public ResultSet getInEmployee() {
+                                    try {
+                                        resultSet1 = selectEmployee.executeQuery();
+                                    } catch (SQLException e) {
+                                    }
+                                    return resultSet1;
                                 }
                             }
 
-                            public ResultSet getEmployee() {
-                                try {
-                                    resultSet1 = selectEmployee.executeQuery();
-                                } catch (SQLException e) {
+                            
+
+                            public class InSlot {
+                                Connection con7 = null;
+                                PreparedStatement selectSlot = null;
+                                ResultSet resultSet3 = null;
+                                public InSlot() {
+                                    try {
+                                        con7 = DBConnection.createConnection();
+
+                                        selectSlot = con7.prepareStatement("SELECT * FROM booking_slots");
+
+                                    } catch (SQLException e) {
+                                    }
                                 }
-                                return resultSet1;
+
+                                public ResultSet getInSlot() {
+                                    try {
+                                        resultSet3 = selectSlot.executeQuery();
+                                    } catch (SQLException e) {
+                                    }
+                                    return resultSet3;
+                                }
+                            }                             
+
+                            public class InClient {
+                            Connection con6 = null;
+                            PreparedStatement selectClient = null;
+                                ResultSet resultSet2 = null;
+                                public InClient() {
+                                    try {
+                                        con6 = DBConnection.createConnection();
+
+                                        selectClient = con6.prepareStatement("SELECT * FROM clients");
+
+                                    } catch (SQLException e) {
+                                    }
+                                }
+
+                                public ResultSet getInClient() {
+                                    try {
+                                        resultSet2 = selectClient.executeQuery();
+                                    } catch (SQLException e) {
+                                    }
+                                    return resultSet2;
+                                }
                             }
-                        }
-                    %>
-                    <%
-                        Employee employee = new Employee();
-                        ResultSet Employee = employee.getEmployee();
-                        Connection con4 = null;
-                        Statement stmt4 = null;
-                        Connection con5 = null;
-                        Statement stmt5 = null;
-                        if (request.getParameter("submit1") != null) {
-
-                            con4 = DBConnection.createConnection();
-                            con5 = DBConnection.createConnection();
-
-                            try {
-                                stmt4 = con4.createStatement();
-                              
-
-                            } catch (SQLException ex) {
-
-                            }
-
-                        }
-                    %>
-
-                    <form name="Clients" action="user.admin.jsp" method="POST">
-                        <table align="center" border="0">
-                            <tbody>
-                                <tr>
-                                    
-                                    <td><select name="EmployeeChoice">
-                                            <%while (Employee.next()) {%>
-                                            <option value="<%= Employee.getString("eid")%>"><%= Employee.getString("ename")%></option>
-                                            <%}%>
-                                        </select></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        %>
                         
-                    </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Client ID: </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Slot ID: </td>  
-                        <td><input id="my-input-searchbox" type="text" placeholder="Enter slot ID" name ="clientaddress">
-                            <div id="map"></div>
-                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtaj_5ZLCTnn5iGxYZMh7zogDTwxlTN6Y&libraries=places&callback=initMap"></script>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><input type="submit" value="Approve User" name="submit1" />
-                        <input type="reset" value="Reset">
-                    </tr>
-                </table>
-            </form>
-        </div>    
-    </center>                
-</body> 
-</html>
+                        
+                        <%
+                            InEmployee employee = new InEmployee();
+                            ResultSet Employee = employee.getInEmployee();
+
+                            InClient client = new InClient();
+                            ResultSet Client = client.getInClient();
+                            
+
+                            InSlot slot = new InSlot();
+                            ResultSet Slot = slot.getInSlot();
+                        %>
+
+
+                        <form name="Clients" action="invoice" method="POST">
+                            <table align="center" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td>Employee Name: </td>
+
+                                        <td><select name="EmployeeChoice">
+                                                <%while (Employee.next () 
+                                                        ) {%>
+                                                <option value="<%= Employee.getString("eid")%>"><%= Employee.getString("ename")%></option>
+                                                <%}%>
+                                            </select></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Clients Name: </td>
+
+                                        <td><select name="ClientChoice">
+                                                <%while (Client.next () 
+                                                        ) {%>
+                                                <option value="<%= Client.getString("cid")%>"><%= Client.getString("cname")%></option>
+                                                <%}%>
+                                            </select></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Slot ID: </td>
+
+                                        <td><select name="SlotChoice">
+                                                <%while (Slot.next () 
+                                                        ) {%>
+                                                <option value="<%= Slot.getString("sid")%>"><%= Slot.getString("sid")%></option>
+                                                <%}%>
+                                            </select></td>
+                                    </tr>
+                                    <tr>
+                                            <td><%=(request.getAttribute("errMessage") == null) ? ""
+                                                    : request.getAttribute("errMessage")%></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <input type="submit" value="Approve User" name="submit" />
+                        </form>
+
+
+                        </div>    
+                        </center>                
+                        </body> 
+                        </html>
 
