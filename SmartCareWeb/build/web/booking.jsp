@@ -65,6 +65,12 @@
             <tr>
                 <td>Employee Id: </td>
                 <td><input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3" type="number" name="eid" /></td>
+
+            </tr>
+            <tr>
+                <td>Client ID: </td>
+                <td><input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3" type="number" name="cid" /></td>
+
             </tr>
             <tr>
                 <td>Slot Date:</td>
