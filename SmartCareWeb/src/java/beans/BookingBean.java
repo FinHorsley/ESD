@@ -10,12 +10,12 @@ package beans;
  * @author Harry Marsh & Kamil Lukomski
  */
 public class BookingBean {
- 
 
- private String eid;
- private String cid;
- private String sdate;
- private String stime;
+    private String eid;
+    private String cid;
+    private String sdate;
+    private String stime;
+    private String sreason;
 
     public String getEid() {
         return eid;
@@ -33,6 +33,10 @@ public class BookingBean {
         return stime;
     }
 
+    public String getSreason() {
+        return sreason;
+    }
+
     public void setEid(String eid) {
         this.eid = eid;
     }
@@ -48,6 +52,9 @@ public class BookingBean {
     public void setStime(String stime) {
         this.stime = stime;
     }
- 
+
+    public void setSreason(String sreason) {
+        this.sreason = sreason;
+    }
 
 }

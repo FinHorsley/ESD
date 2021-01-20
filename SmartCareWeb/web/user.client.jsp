@@ -43,8 +43,6 @@
 
 
         </div>
-
-        <a href = "http://localhost:8080/SmartCareWeb/booking.jsp">booking</a>
     </body>
 
     </div>
@@ -69,6 +67,7 @@
                 <td><b>Client Username</b></td>
                 <td><b>Appointment Date</b></td>
                 <td><b>Appointment Time</b></td>
+                <td><b>Appointment Reason</b></td>
             </tr>
             <%            Connection con1 = null;
                 con1 = DBConnection.createConnection();
@@ -91,6 +90,7 @@
                 <td><%=Username%></td>
                 <td><%=resultSet1.getString("sdate")%></td>
                 <td><%=resultSet1.getString("stime")%></td>
+                <td><%=resultSet1.getString("sreason")%></td>
             </tr>
 
             <%
