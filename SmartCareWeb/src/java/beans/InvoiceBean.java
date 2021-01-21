@@ -11,10 +11,20 @@ package beans;
  */
 public class InvoiceBean {
     
-    private String IID;
-    private String EID;
-    private String CID;
-    private String SID;
+    private static String IID;
+    private static String EID;
+    private static String CID;
+    private static String SID;
+    private static String PID;
+    
+    public static String getPID() {
+        return PID;
+    }
+
+    public static void setPID(String PID) {
+        InvoiceBean.PID = PID;
+    }
+    
 
     public String getIID() {
         return IID;
@@ -47,5 +57,6 @@ public class InvoiceBean {
     public void setSID(String SID) {
         this.SID = SID;
     }
+
 
 }

@@ -4,6 +4,11 @@
     Author     : harry
 --%>
 
+<%@page import="beans.PrescriptionBean"%>
+<%@page import="beans.SlotBean"%>
+<%@page import="beans.ClientBean"%>
+<%@page import="beans.InvoiceBean"%>
+<%@page import="beans.EmployeeBean"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="DOA.DBConnection"%>
@@ -110,67 +115,16 @@
                 text-align: center;
                 padding: 8px;
             }
-            
+
             input{
                 border: #F5F5DC;
             }
 
-            
+
 
         </style>
 
-        <%-- 
-            code Segment   : Start of google map Api import
-        --%>
-        <script>
-            function initAutocomplete() {
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    center: {
-                        lat: 48,
-                        lng: 4
-                    },
-                    zoom: 4,
-                    disableDefaultUI: true
-                });
 
-                // Create the search box and link it to the UI element.
-                var input = document.getElementById('my-input-searchbox');
-                var autocomplete = new google.maps.places.Autocomplete(input);
-                map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
-                var marker = new google.maps.Marker({
-                    map: map
-                });
-
-                // Bias the SearchBox results towards current map's viewport.
-                autocomplete.bindTo('bounds', map);
-                // Set the data fields to return when the user selects a place.
-                autocomplete.setFields(
-                        ['address_components', 'geometry', 'name']);
-
-                // Listen for the event fired when the user selects a prediction and retrieve
-                // more details for that place.
-                autocomplete.addListener('place_changed', function () {
-                    var place = autocomplete.getPlace();
-                    if (!place.geometry) {
-                        console.log("Returned place contains no geometry");
-                        return;
-                    }
-                    var bounds = new google.maps.LatLngBounds();
-                    marker.setPosition(place.geometry.location);
-
-                    if (place.geometry.viewport) {
-                        // Only geocodes have viewport.
-                        bounds.union(place.geometry.viewport);
-                    } else {
-                        bounds.extend(place.geometry.location);
-                    }
-                    map.fitBounds(bounds);
-                });
-            }
-            document.addEventListener("DOMContentLoaded", function (event) {
-                initAutocomplete();
-            });
-        </script>
         <meta charset="utf-8">
         <title>Admin CPanel - SmartCare</title>
     </head>
@@ -182,13 +136,18 @@
                 RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/index.jsp"); //gives the request the peramiter of the page
                 RequetsDispatcherObj.forward(request, response);
 
-            } else if (!UserBean.role.equals("client")) {
+            } else if ((!UserBean.role.equals("client")) && (!UserBean.role.equals("admin"))) {
 
                 RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
                 RequetsDispatcherObj.forward(request, response);
 
             }
 
+            EmployeeBean ERBean = new EmployeeBean();
+            InvoiceBean IRBean = new InvoiceBean();
+            ClientBean CRBean = new ClientBean();
+            SlotBean SRBean = new SlotBean();
+            PrescriptionBean PRBean = new PrescriptionBean();
         %> 
 
 
@@ -207,12 +166,12 @@
             <br><br>
         </div>
     <center>
-        <div style= "background-color:beige;width:1000px;height:600px;border:25px solid #F5F5DC;">
+        <div style= "background-color:beige;width:1000px;height:400px;border:25px solid #F5F5DC;">
             <h3>Smart Care Invoice</h3> 
-            <h4>Invoice Number:  <input style="background-color:beige;margin-right: 700px;display: inline-block;text-align: left;float: right;" type="number" id="iid" name="iid" /></h4>        
-            <h4>Patient Name:    <input style="background-color:beige;margin-right: 700px;display: inline-block;text-align: left;float: right;" type="text" id="cname" name="cname" /></h4>     
-            <h4>Patient Address: <input style="background-color:beige;margin-right: 700px;display: inline-block;text-align: left;float: right;" type="text" id="address" name="address" /></h4> 
-            <h4>Physician:       <input style="background-color:beige;margin-right: 700px;display: inline-block;text-align: left;float: right;" type="text" id="ename" name="ename" /></h4>     
+            <h4>Invoice Number:  <%=IRBean.getIID()%></h4>        
+            <h4>Patient Name:    <%=CRBean.getCname()%></h4>     
+            <h4>Patient Address: <%=CRBean.getCaddress()%></h4> 
+            <h4>Physician:       <%=ERBean.getEname()%></h4>     
             <br>
             <table style="width:100%">
                 <tr>
@@ -222,34 +181,11 @@
                     <th>Amount Due</th>
                 </tr>
                 <tr>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th> 
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                </tr>
-                <tr>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th> 
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                </tr>
-                <tr>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th> 
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                </tr>
-                <tr>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th> 
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                </tr>
-                <tr>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th> 
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
-                    <th><input style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /></th>
+                    <th><a style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /><%=SRBean.getSdate()%></a></th> 
+                    <th><a style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /><%=SRBean.getSreason()%></a></th> 
+                    <th><a style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /><%=PRBean.getMedicine()%></a></th> 
+                    <th><a style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" />Not added yet</a></th> 
+
                 </tr>
             </table>
             <h5> Total: <input style =" border: #F5F5DC; margin-right: -87px; width: 75px;" type="number" id="total" name="total" /> </h5>

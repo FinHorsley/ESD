@@ -45,10 +45,10 @@ public class BookingDAO {
         }
 
         String cid = BookingBean.getCid();
-
         String sdate = BookingBean.getSdate();
         String stime = BookingBean.getStime();
         String sreason = BookingBean.getSreason();
+        
         Connection con = null;
         PreparedStatement preparedStatement = null;
         try {

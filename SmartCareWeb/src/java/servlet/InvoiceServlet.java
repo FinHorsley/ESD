@@ -28,16 +28,19 @@ public class InvoiceServlet extends HttpServlet {
          String EmployeeID = request.getParameter("EmployeeChoice");
          String ClientID = request.getParameter("ClientChoice");
          String SlotID = request.getParameter("SlotChoice");
+         String PrescriptionID = request.getParameter("PrescriptionChoice");
          
          System.out.println("EID = "+EmployeeID );
          System.out.println("CID = "+ClientID );
          System.out.println("SID = "+SlotID );
+         System.out.println("PID = "+PrescriptionID );
          
          InvoiceBean InvoiceBean = new InvoiceBean();
         //Using Java Beans - An easiest way to play with group of related data
          InvoiceBean.setEID(EmployeeID);
          InvoiceBean.setCID(ClientID);
          InvoiceBean.setSID(SlotID);
+         InvoiceBean.setPID(PrescriptionID);
          
          InvoiceDAO InvoiceDAO = new InvoiceDAO();
          
@@ -46,7 +49,7 @@ public class InvoiceServlet extends HttpServlet {
          
          if(makeInvoice.equals("SUCCESS"))   //On success, you can display a message to user on Home page
          {
-            request.getRequestDispatcher("/user.nurse.jsp").forward(request, response);
+            request.getRequestDispatcher("/user.admin.jsp").forward(request, response);
          }
          else   //On Failure, display a meaningful message to the User.
          {

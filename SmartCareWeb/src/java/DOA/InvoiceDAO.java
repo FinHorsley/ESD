@@ -21,17 +21,19 @@ public class InvoiceDAO {
         String EmployeeID = InvoiceBean.getEID();
         String ClientID = InvoiceBean.getCID();
         String SlotID = InvoiceBean.getSID();
+        String PrescriptionID = InvoiceBean.getPID();
         
         Connection con = null;
         PreparedStatement preparedStatement = null;
         
         try {
             con = DBConnection.createConnection();
-            String query = "insert into invoice(eid,cid,sid) values (?,?,?)"; //Insert user details into the table 'USERS'
+            String query = "insert into invoice(eid,cid,sid,pid) values (?,?,?,?)"; //Insert user details into the table 'USERS'
             preparedStatement = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
             preparedStatement.setString(1, EmployeeID); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp
             preparedStatement.setString(2, ClientID); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp 
             preparedStatement.setString(3, SlotID); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp
+            preparedStatement.setString(4, PrescriptionID); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp
             
             int i = preparedStatement.executeUpdate();
 
