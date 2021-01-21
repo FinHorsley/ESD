@@ -17,43 +17,43 @@ public class BookingBean {
     private String stime;
     private String sreason;
 
-    public String getEid() {
+    public String getEid() {//getter for class value
         return eid;
     }
 
-    public String getCid() {
+    public String getCid() {//getter for class value
         return cid;
     }
 
-    public String getSdate() {
+    public String getSdate() {//getter for class value
         return sdate;
     }
 
-    public String getStime() {
+    public String getStime() {//getter for class value
         return stime;
     }
 
-    public String getSreason() {
+    public String getSreason() {//getter for class value
         return sreason;
     }
 
-    public void setEid(String eid) {
+    public void setEid(String eid) {//setter for class value
         this.eid = eid;
     }
 
-    public void setCid(String cid) {
+    public void setCid(String cid) {//setter for class value
         this.cid = cid;
     }
 
-    public void setSdate(String sdate) {
+    public void setSdate(String sdate) {//setter for class value
         this.sdate = sdate;
     }
 
-    public void setStime(String stime) {
+    public void setStime(String stime) {//setter for class value
         this.stime = stime;
     }
 
-    public void setSreason(String sreason) {
+    public void setSreason(String sreason) {//setter for class value
         this.sreason = sreason;
     }
 

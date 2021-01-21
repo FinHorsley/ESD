@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DOA;
+package DAO;
 
 import beans.InvoiceBean;
 import java.sql.Connection;
@@ -18,10 +18,10 @@ public class InvoiceDAO {
     
         public String InvoiceUser(InvoiceBean InvoiceBean)
         {
-        String EmployeeID = InvoiceBean.getEID();
-        String ClientID = InvoiceBean.getCID();
-        String SlotID = InvoiceBean.getSID();
-        String PrescriptionID = InvoiceBean.getPID();
+        String EmployeeID = InvoiceBean.getEID();//setting the strings for the sql query from class
+        String ClientID = InvoiceBean.getCID();//setting the strings for the sql query from class
+        String SlotID = InvoiceBean.getSID();//setting the strings for the sql query from class
+        String PrescriptionID = InvoiceBean.getPID();//setting the strings for the sql query from class
         
         Connection con = null;
         PreparedStatement preparedStatement = null;
@@ -30,10 +30,10 @@ public class InvoiceDAO {
             con = DBConnection.createConnection();
             String query = "insert into invoice(eid,cid,sid,pid) values (?,?,?,?)"; //Insert user details into the table 'USERS'
             preparedStatement = con.prepareStatement(query); //Making use of prepared statements here to insert bunch of data
-            preparedStatement.setString(1, EmployeeID); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp
-            preparedStatement.setString(2, ClientID); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp 
-            preparedStatement.setString(3, SlotID); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp
-            preparedStatement.setString(4, PrescriptionID); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp
+            preparedStatement.setString(1, EmployeeID); //Using the set function  to set inputed data 
+            preparedStatement.setString(2, ClientID); //Using the set function  to set inputed data    
+            preparedStatement.setString(3, SlotID); //Using the set function  to set inputed data 
+            preparedStatement.setString(4, PrescriptionID); //Using the set function  to set inputed data 
             
             int i = preparedStatement.executeUpdate();
 

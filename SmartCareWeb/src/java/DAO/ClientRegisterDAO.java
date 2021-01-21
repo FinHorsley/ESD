@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DOA;
+package DAO;
 
 import beans.RegisterBean;
 import java.sql.Connection;
@@ -17,10 +17,10 @@ import java.sql.SQLException;
 public class ClientRegisterDAO {
 
     public String registerUser(RegisterBean registerBean) {
-        String cname = registerBean.getName();
-        String caddress = registerBean.getAddress();
-        String ctype = registerBean.getType();
-        String uname = registerBean.getUserName();
+        String cname = registerBean.getName();//setting the strings for the sql query from class
+        String caddress = registerBean.getAddress();//setting the strings for the sql query from class
+        String ctype = registerBean.getType();//setting the strings for the sql query from class
+        String uname = registerBean.getUserName();//setting the strings for the sql query from class
 
         Connection con = null;
         PreparedStatement preparedStatement = null;
@@ -28,10 +28,10 @@ public class ClientRegisterDAO {
             con = DBConnection.createConnection();
             String queryC = "insert into clients(cname,caddress,ctype,uname) values (?,?,?,?)"; //Insert user details into the table 'USERS'
             preparedStatement = con.prepareStatement(queryC); //Making use of prepared statements here to insert bunch of data
-            preparedStatement.setString(1, cname); //Using the get.UserName function in the RegisterBean to get inputed data from registration.jsp
-            preparedStatement.setString(2, caddress); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp
-            preparedStatement.setString(3, ctype); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp             
-            preparedStatement.setString(4, uname); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp
+            preparedStatement.setString(1, cname); //Using the set function  to set inputed data 
+            preparedStatement.setString(2, caddress); //Using the set function  to set inputed data 
+            preparedStatement.setString(3, ctype); //Using the set function  to set inputed data            
+            preparedStatement.setString(4, uname); //Using the set function  to set inputed data 
 
             int f = preparedStatement.executeUpdate();
 

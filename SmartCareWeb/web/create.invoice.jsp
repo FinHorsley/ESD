@@ -7,7 +7,7 @@
 <%@page import="beans.CChoiceBean"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="DOA.DBConnection"%>
+<%@page import="DAO.DBConnection"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -40,17 +40,13 @@
             }
 
         %> 
-
-
         <div class="topnav">
             <a class="title left">SmartCare Web Page</a>
             <div class="right">
                 <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
                 <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
             </div>
-
         </div>
-
         <div style="text-align: center">
             <h1>Welcome to SmartCare Billing Centre</h1>
             <h2>Please fill out the invoice form below</h2>
@@ -166,12 +162,9 @@
                                 }
                             }
                         %>
-
-
-                        <%
-                            InEmployee employee = new InEmployee();
+                        <%                            InEmployee employee = new InEmployee();
                             ResultSet Employee = employee.getInEmployee();
-                            
+
                             InClient client = new InClient();
                             ResultSet Client = client.getInClient();
 
@@ -181,8 +174,6 @@
                             Prescription prescription = new Prescription();
                             ResultSet Prescription = prescription.getPrescription();
                         %>
-
-
                         <form name="Clients" action="invoice" method="POST">
                             <table align="center" border="0">
                                 <tbody>
@@ -223,19 +214,15 @@
                                             </select></td>
                                     </tr>
                                     <tr>
-                                            <td><%=(request.getAttribute("errMessage") == null) ? ""
+                                        <td><%=(request.getAttribute("errMessage") == null) ? ""
                                                     : request.getAttribute("errMessage")%></td>
                                     </tr>
                                 </tbody>
                             </table>
-
-
                             <input type="submit" value="Approve User" name="submit" />
                         </form>
-
-
-                        </div>    
-                        </center>                
-                        </body> 
-                        </html>
+            </div>    
+        </center>                
+    </body> 
+</html>
 

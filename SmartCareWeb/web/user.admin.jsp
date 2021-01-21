@@ -9,7 +9,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="DOA.DBConnection"%>
+<%@page import="DAO.DBConnection"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="beans.UserBean"%>
 
@@ -39,33 +39,24 @@
             }
 
         %>  
-
         <div class="topnav">
             <a class="title left">Admin Control Panel</a>
             <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
             <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
             <a class="right" href = "http://localhost:8080/SmartCareWeb/create.invoice.jsp">Billing Centre</a>
                         <a class="right" href = "http://localhost:8080/SmartCareWeb/view.invoice.jsp">View Invoices</a>
-
-
-
-
         </div>
 
         <div style="text-align: center">
             <h1>Admin Control Panel</h1>
             <br><br>
-
-
             <div id="contentBox" style="margin:0px auto; width:100%">
 
                 <!-- columns divs, float left, no margin so there is no space between column, width=1/3 -->
                 <div id="column1" style="float:left; margin:0; width:50%;">
                     <h2>List of NHS Members:</h2>
-
                     <table align="center" cellpadding="5" cellspacing="5" border="1">
                         <tr>
-
                         </tr>
                         <tr>
                             <td><b>Clients Name</b></td>
@@ -92,10 +83,7 @@
                             <td><%=resultSet.getString("cid")%></td>
                             <td><%=resultSet.getString("caddress")%></td>
                             <td><%=resultSet.getString("ctype")%></td>
-
-
                         </tr>
-
                         <%
                                 }
 
@@ -137,10 +125,7 @@
                             <td><%=resultSet.getString("cid")%></td>
                             <td><%=resultSet.getString("caddress")%></td>
                             <td><%=resultSet.getString("ctype")%></td>
-
-
                         </tr>
-
                         <%
                                 }
 
@@ -240,11 +225,7 @@
                         </table>
                         <input type="submit" value="Approve User" name="submit1" />
                     </form>
-
-
-
                 </div>
-
                 <div id="column2" style="float:left; margin:0; width:50%;">
                     <h3>Remove User Account:</h3>
                     <%!
@@ -318,7 +299,6 @@
 
                         }
                     %>
-
                     <form name="Clients" action="user.admin.jsp" method="POST">
                         <table align="center" border="0">
                             <tbody>

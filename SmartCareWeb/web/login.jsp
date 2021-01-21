@@ -18,10 +18,8 @@
             <a class="title left">Login</a>
             <a class="right" href="index.jsp">Home</a>
         </div>
-
         <div style="text-align: center">
             <h1>Login</h1>
-
             <form action="login" method="post">
                 <table align="center">
                     <tr>

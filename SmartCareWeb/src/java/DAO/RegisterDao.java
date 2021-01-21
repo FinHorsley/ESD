@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DOA;
+package DAO;
 
 import beans.RegisterBean;
 import java.sql.Connection;
@@ -17,8 +17,8 @@ import java.sql.SQLException;
 public class RegisterDao {
 
     public String registerUser(RegisterBean registerBean) {
-        String userName = registerBean.getUserName();
-        String password = registerBean.getPassword();
+        String userName = registerBean.getUserName();//setting the strings for the sql query from class
+        String password = registerBean.getPassword();//setting the strings for the sql query from class
         String role = "client";
 
         Connection con = null;

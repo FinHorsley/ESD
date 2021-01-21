@@ -3,9 +3,9 @@
     Created on : 10-Dec-2020, 14:05:07
     Author     : harry
 --%>
-
+<%-- Imports --%>  
 <%@page import="java.sql.*"%>
-<%@page import="DOA.DBConnection"%>
+<%@page import="DAO.DBConnection"%>
 <%@page import="beans.UserBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" href="SmartCare.css">  
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
+        <%--  menu tittle --%>
         <title>Nurse CPanel - SmartCare</title>
     </head>
     <body>
@@ -32,24 +33,27 @@
             }
 
         %> 
+        <%-- navigation menu --%>
         <div class="topnav">
             <a class="title left">Nurse Control Panel</a>
             <div class="right">
-                <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
-                <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+                <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a><%-- home button back to main menu --%>
+                <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a><%-- logout button log out of system --%>
             </div>
 
         </div>
 
+        <%-- Viewing of the Appointments in a table --%>  
         <div style="text-align: center">
             <h1>Nurse Control Panel</h1>
-            <h2>Please select your role below!</h2>
+            <h2>View Appointment Details</h2>
             <br><br>
 
             <table align="center" cellpadding="5" cellspacing="5" border="1">
                 <tr>
 
                 </tr>
+                <%-- Creating table heads --%>  
                 <tr>
                     <td><b>Appointment ID</b></td>
                     <td><b>EID</b></td>
@@ -63,17 +67,17 @@
                         Connection con = null;
                         Statement statement = null;
                         ResultSet resultSet = null;
-                        con = DBConnection.createConnection();
+                        con = DBConnection.createConnection();//conecting to the database
 
-                        statement = con.createStatement();
-                        String sql = "SELECT * FROM booking_slots";
+                        statement = con.createStatement(); //creating a statement based of the database
+                        String sql = "SELECT * FROM booking_slots";//select statement
 
-                        resultSet = statement.executeQuery(sql);
+                        resultSet = statement.executeQuery(sql);//exacuting the select statement
 
                         while (resultSet.next()) {
                 %>
                 <tr>
-
+                    <%-- Creating body of the table from the data collected from the database--%>  
                     <td><%=resultSet.getString("sid")%></td>
                     <td><%=resultSet.getString("eid")%></td>
                     <td><%=resultSet.getString("cid")%></td>
@@ -85,18 +89,13 @@
 
                 <%
                         }
-
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        e.printStackTrace(); //SQLExeption catch
                     }
                 %>
             </table>
-
-
             <div id="contentBox" style="margin:0px auto; width:100%">
-
-
-                <!-- columns divs, float left, no margin so there is no space between column, width=1/3 -->
+                <!-- columns divs, float left, no margin so there is no space between column, width=1/2 -->
                 <div id="column1" style="float:left; margin:0; width:50%;">
                     <h2>Create Prescription:</h2>            
 
@@ -110,30 +109,30 @@
 
                             public Invoice() {
                                 try {
-                                    con = DBConnection.createConnection();
+                                    con = DBConnection.createConnection();//connect to the database
 
-                                    selectInvoice = con.prepareStatement("SELECT * FROM booking_slots WHERE sreason = 'Prescription'");
+                                    selectInvoice = con.prepareStatement("SELECT * FROM booking_slots WHERE sreason = 'Prescription'");//get all values from the invoice table
 
                                 } catch (SQLException e) {
-                                }
+                                }//SQLExeption catch
                             }
 
                             public ResultSet getInvoice() {
                                 try {
-                                    resultSet = selectInvoice.executeQuery();
+                                    resultSet = selectInvoice.executeQuery();//exacute query
                                 } catch (SQLException e) {
-                                }
+                                }//SQLExeption catch
                                 return resultSet;
                             }
                         }
                     %>
-                    <%                    Invoice invoice = new Invoice();
-                        ResultSet Invoices = invoice.getInvoice();
+                    <%
+                        Invoice invoice = new Invoice();//create a new invoice function
+                        ResultSet Invoices = invoice.getInvoice();//assign the function of result set to varible to be used within html
 
-                        // if (request.getParameter("submit") != null) {
-                        // }
                     %>
 
+                    <%-- Selecting appointment to create an invoice --%>  
                     <form name="Clients" action="createp" method="POST">
                         <table align="center" border="0">
                             <tbody>
@@ -148,6 +147,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <%-- Submit button --%>                  
                         <input type="submit" value="Create Prescription" name="submit" />
                     </form>
                 </div>
@@ -208,7 +208,7 @@
 
                         }
                     %>
-
+                    <%-- Selecting an apointment to create invoice --%>
                     <form name="Appointments" action="user.nurse.jsp" method="POST">
                         <table align="center" border="0">
                             <tbody>
@@ -223,22 +223,11 @@
                                 </tr>
                             </tbody>
                         </table>
+                          <%-- Submit button --%>                   
                         <input type="submit" value="Complete/Cancel" name="submit" />
                     </form>
-
-
-
-
-
-
-
-
                 </div>
-
-
-
             </div>
-
             <div id="contentBox" style="margin:0px auto; width:100%">
                 <div id="column1" style="float:left; margin:0; width:100%;">
                     <h2>Recurring Prescriptions</h2>
@@ -249,6 +238,7 @@
 
                         </tr>
                         <tr>
+                            <%-- Creating head of the table --%> 
                             <td><b>Prescription ID</b></td>
                             <td><b>Client ID</b></td>
                             <td><b>Booking Slot ID</b></td>
@@ -262,17 +252,17 @@
                                 Connection con3 = null;
                                 Statement statement3 = null;
                                 ResultSet resultSet3 = null;
-                                
-                                con3 = DBConnection.createConnection();
-                                statement3 = con3.createStatement();
-                                String sql3 = "SELECT * FROM prescription WHERE repeating = 'yes'";
 
-                                resultSet3 = statement3.executeQuery(sql3);
+                                con3 = DBConnection.createConnection();//conecting to databse
+                                statement3 = con3.createStatement(); //creating a statement
+                                String sql3 = "SELECT * FROM prescription WHERE repeating = 'yes'"; //declaring the select statement
+
+                                resultSet3 = statement3.executeQuery(sql3); // exacuting the statement
 
                                 while (resultSet3.next()) {
                         %>
                         <tr>
-
+                            <%-- Creating body of the table --%> 
                             <td><%=resultSet3.getString("pid")%></td>
                             <td><%=resultSet3.getString("cid")%></td>
                             <td><%=resultSet3.getString("sid")%></td>

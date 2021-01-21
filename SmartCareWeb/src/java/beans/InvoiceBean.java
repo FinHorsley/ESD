@@ -17,44 +17,44 @@ public class InvoiceBean {
     private static String SID;
     private static String PID;
     
-    public static String getPID() {
+    public static String getPID() {//getter for class value
         return PID;
     }
 
-    public static void setPID(String PID) {
+    public static void setPID(String PID) {//setter for class value
         InvoiceBean.PID = PID;
     }
     
 
-    public String getIID() {
+    public String getIID() {//getter for class value
         return IID;
     }
 
-    public void setIID(String IID) {
+    public void setIID(String IID) {//setter for class value
         this.IID = IID;
     }
 
-    public String getEID() {
+    public String getEID() {//getter for class value
         return EID;
     }
 
-    public void setEID(String EID) {
+    public void setEID(String EID) {//setter for class value
         this.EID = EID;
     }
 
-    public String getCID() {
+    public String getCID() {//getter for class value
         return CID;
     }
 
-    public void setCID(String CID) {
+    public void setCID(String CID) {//setter for class value
         this.CID = CID;
     }
 
-    public String getSID() {
+    public String getSID() {//getter for class value
         return SID;
     }
 
-    public void setSID(String SID) {
+    public void setSID(String SID) {//setter for class value
         this.SID = SID;
     }
 

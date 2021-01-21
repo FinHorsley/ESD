@@ -3,11 +3,11 @@
     Created on : 10-Dec-2020, 14:05:07
     Author     : harry
 --%>
-
+<%-- Imports --%>  
 <%@page import="beans.InvoiceBean"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="DOA.DBConnection"%>
+<%@page import="DAO.DBConnection"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -75,6 +75,7 @@
         </style>
 
         <meta charset="utf-8">
+        <%--  menu tittle --%>
         <title>View Invoice CPanel - SmartCare</title>
     </head>
     <body>
@@ -86,7 +87,7 @@
                 RequetsDispatcherObj.forward(request, response);
 
             }
-            if ((!UserBean.role.equals("client")) && (!UserBean.role.equals("admin"))) {
+            if ((!UserBean.role.equals("client")) && (!UserBean.role.equals("admin"))) {//checks users role and depending on role redirects to their client area
 
                 RequestDispatcher RequetsDispatcherObj = request.getRequestDispatcher("/home.jsp"); //gives the request the peramiter of the page
                 RequetsDispatcherObj.forward(request, response);
@@ -96,16 +97,16 @@
 
         %> 
 
-
+        <%-- navigation menu --%>
         <div class="topnav">
-            <a class="title left">SmartCare Web Page</a>
+            <a class="title left">SmartCare Web Page</a> <%-- page title in navigation bar menu --%>
             <div class="right">
-                <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
-                <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+                <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a> <%-- home button back to main menu --%>
+                <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a> <%-- logout button log out of system --%>
             </div>
-
         </div>
 
+         <%-- Viewing of the invoices --%>   
         <div style="text-align: center">
             <h1>Welcome to SmartCare Invoice Centre</h1>
             <h2>Please select which invoice you would like to view</h2>
@@ -122,37 +123,36 @@
 
                         public Invoice() {
                             try {
-                                con = DBConnection.createConnection();
+                                con = DBConnection.createConnection();//connect to the database
 
-                                selectInvoice = con.prepareStatement("SELECT * FROM invoice");
+                                selectInvoice = con.prepareStatement("SELECT * FROM invoice"); //get all values from the invoice table
 
                             } catch (SQLException e) {
-                            }
+                            }//SQLExeption catch
                         }
 
                         public ResultSet getInvoice() {
                             try {
-                                resultSet = selectInvoice.executeQuery();
+                                resultSet = selectInvoice.executeQuery(); //exacute query
                             } catch (SQLException e) {
-                            }
+                            }//SQLExeption catch
                             return resultSet;
                         }
                     }
                 %>
                 <%                    
-                    Invoice invoice = new Invoice();
-                    ResultSet Invoices = invoice.getInvoice();
-
-                    // if (request.getParameter("submit") != null) {
-                    // }
+                    Invoice invoice = new Invoice(); //create a new invoice function
+                    ResultSet Invoices = invoice.getInvoice();//assign the function of result set to varible to be used within html
                 %>
-
+            
+            <%-- form for selecting the invoice to view based off of invoice id --%>  
             <form name="Clients" action="viewinvoice" method="POST">
                 <table align="center" border="0">
                     <tbody>
                         <tr>
+                            //SQLExeption catch
                             <td>Select Invoice ID: </td>
-
+                            <%-- Select dropdown box --%>  
                             <td><select name="InvoiceChoice">
                                     <%while (Invoices.next()) {%>
                                     <option value="<%= Invoices.getString("iid")%>"><%= Invoices.getString("iid")%></option>
@@ -161,6 +161,7 @@
                         </tr>
                     </tbody>
                 </table>
+                  <%-- Submit button --%>                
                 <input type="submit" value="View Invoice" name="submit" />
             </form>
         </div>    

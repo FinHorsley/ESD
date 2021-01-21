@@ -21,39 +21,39 @@ public class ClientBean {
         return cid;
     }
 
-    public void setCid(String cid) {
+    public void setCid(String cid) {//setter for class value
         this.cid = cid;
     }
 
-    public String getCname() {
+    public String getCname() {//getter for class value
         return cname;
     }
 
-    public void setCname(String cname) {
+    public void setCname(String cname) {//setter for class value
         this.cname = cname;
     }
 
-    public String getCaddress() {
+    public String getCaddress() {//getter for class value
         return caddress;
     }
 
-    public void setCaddress(String caddress) {
+    public void setCaddress(String caddress) {//setter for class value
         this.caddress = caddress;
     }
 
-    public String getCtype() {
+    public String getCtype() {//getter for class value
         return ctype;
     }
 
-    public void setCtype(String ctype) {
+    public void setCtype(String ctype) {//setter for class value
         this.ctype = ctype;
     }
 
-    public String getUname() {
+    public String getUname() {//getter for class value
         return uname;
     }
 
-    public void setUname(String uname) {
+    public void setUname(String uname) {//setter for class value
         this.uname = uname;
     }
 

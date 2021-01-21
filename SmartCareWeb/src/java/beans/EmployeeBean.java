@@ -15,35 +15,35 @@ public class EmployeeBean {
     private static String eaddress;
     private static String uname;
     
-    public String getEid() {
+    public String getEid() {//getter for class value
         return eid;
     }
 
-    public void setEid(String eid) {
+    public void setEid(String eid) {//setter for class value
         this.eid = eid;
     }
 
-    public String getEname() {
+    public String getEname() {//getter for class value
         return ename;
     }
 
-    public void setEname(String ename) {
+    public void setEname(String ename) {//setter for class value
         this.ename = ename;
     }
 
-    public String getEaddress() {
+    public String getEaddress() {//getter for class value
         return eaddress;
     }
 
-    public void setEaddress(String eaddress) {
+    public void setEaddress(String eaddress) {//setter for class value
         this.eaddress = eaddress;
     }
 
-    public String getUname() {
+    public String getUname() {//getter for class value
         return uname;
     }
 
-    public void setUname(String uname) {
+    public void setUname(String uname) {//setter for class value
         this.uname = uname;
     }
 
