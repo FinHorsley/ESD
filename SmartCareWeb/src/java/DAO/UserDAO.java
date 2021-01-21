@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DOA;
+package DAO;
 
 import beans.UserBean;
 import java.sql.*;
@@ -29,7 +29,7 @@ public class UserDAO {
 
         UserBean user = null;
 
-        if (result.next()) {
+        if (result.next()) { //uses the next value of the ResultSet to set/get data from casses
             user = new UserBean();
             user.setRole(result.getString("role"));
             user.setUname(uname);

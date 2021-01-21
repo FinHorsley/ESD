@@ -15,27 +15,27 @@ public class UserBean {
     public static String role;
     private String passwd;
     
-    public String getUname() {
+    public String getUname() { //getter for class value
         return uname;
     }
 
-    public String getRole() {
+    public String getRole() { //getter for class value
         return role;
     }
 
-    public String getPasswd() {
+    public String getPasswd() { //getter for class value
         return passwd;
     }
     
-    public void setUname(String uname) {
+    public void setUname(String uname) { //setter for class value
         this.uname = uname;
     }
 
-    public void setRole(String role) {
+    public void setRole(String role) {//setter for class value
         this.role = role;
     }
 
-    public void setPasswd(String passwd) {
+    public void setPasswd(String passwd) {//setter for class value
         this.passwd = passwd;
     }
     

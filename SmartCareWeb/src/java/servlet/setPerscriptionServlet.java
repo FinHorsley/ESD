@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package servlet;
+//--------------imports
 
 import beans.PChoiceBean;
 import java.io.IOException;
@@ -13,10 +14,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+//--------------imports
 
 /**
  *
- * @author harry
+ * @author Harry Marsh
  */
 @WebServlet("/createp")
 public class setPerscriptionServlet extends HttpServlet {
@@ -29,14 +31,13 @@ public class setPerscriptionServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String PChoice = request.getParameter("PChoice"); //geting data from the users database
-        System.out.println("PChoice IS: "+ PChoice);
-   
+
+        String PChoice = request.getParameter("PChoice"); //geting data from form
+
         PChoiceBean PBean = new PChoiceBean();
-        PBean.setSid(PChoice);
-        
-        
+        PBean.setSid(PChoice);//setting the varible to the class so it can be accesed in other servlets
+
+        //request dispatcha to redirect the servlet to the genrate.invoice.jsp page once it has completed its operations
         RequestDispatcher dispatcher = request.getRequestDispatcher("prescription.create.jsp");
         dispatcher.forward(request, response);
 

@@ -12,11 +12,11 @@ package beans;
 public class PChoiceBean {
     public static String sid;
 
-    public String getSid() {
+    public String getSid() {//getter for class value
         return sid;
     }
 
-    public void setSid(String sid) {
+    public void setSid(String sid) {//setter for class value
         this.sid = sid;
     }
 }

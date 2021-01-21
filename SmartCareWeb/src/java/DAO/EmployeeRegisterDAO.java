@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DOA;
+package DAO;
 
 import beans.EmployeeRegisterBean;
 import beans.RegisterBean;
@@ -18,9 +18,9 @@ import java.sql.SQLException;
 public class EmployeeRegisterDAO {
 
     public String EmployeeregisterUser(EmployeeRegisterBean registerBean) {
-        String ename = registerBean.geteName();
-        String eaddress = registerBean.geteAddress();
-        String uname = registerBean.geteUserName();
+        String ename = registerBean.geteName();//setting the strings for the sql query from class
+        String eaddress = registerBean.geteAddress();//setting the strings for the sql query from class
+        String uname = registerBean.geteUserName();//setting the strings for the sql query from class
 
         Connection con = null;
         PreparedStatement preparedStatement = null;
@@ -28,9 +28,9 @@ public class EmployeeRegisterDAO {
             con = DBConnection.createConnection();
             String queryC = "insert into employee(ename,eaddress,uname) values (?,?,?)"; //Insert user details into the table 'USERS'
             preparedStatement = con.prepareStatement(queryC); //Making use of prepared statements here to insert bunch of data
-            preparedStatement.setString(1, ename); //Using the get.UserName function in the RegisterBean to get inputed data from registration.jsp
-            preparedStatement.setString(2, eaddress); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp            
-            preparedStatement.setString(3, uname); //Using the get.password function in the RegisterBean to get inputed data from registration.jsp
+            preparedStatement.setString(1, ename); //Using the set function  to set inputed data 
+            preparedStatement.setString(2, eaddress); //Using the set function  to set inputed data             
+            preparedStatement.setString(3, uname); //Using the set function  to set inputed data 
 
             int f = preparedStatement.executeUpdate();
 

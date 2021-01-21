@@ -6,7 +6,7 @@
 
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="DOA.DBConnection"%>
+<%@page import="DAO.DBConnection"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.PreparedStatement"%>

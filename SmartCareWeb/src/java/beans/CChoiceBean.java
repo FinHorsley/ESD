@@ -13,11 +13,11 @@ public class CChoiceBean {
 
     public static String cid;
 
-    public String getCid() {
+    public String getCid() {//getter for class value
         return cid;
     }
 
-    public void setCid(String cid) {
+    public void setCid(String cid) {//setter for class value
         this.cid = cid;
     }
 

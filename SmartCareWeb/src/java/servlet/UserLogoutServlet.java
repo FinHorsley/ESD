@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 package servlet;
+//--------------imports
 
-import java.io.*;
 import java.io.IOException;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+//--------------imports
 
 /**
  *
@@ -30,7 +30,7 @@ public class UserLogoutServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         if (session != null) { //removes all details about user when logged out so unable to access areas without login
             session.removeAttribute("user");
-
+            //request dispatcha to redirect the servlet to the genrate.invoice.jsp page once it has completed its operations
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp"); //returns to main page
             dispatcher.forward(request, response);
         }

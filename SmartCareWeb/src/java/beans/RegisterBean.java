@@ -17,43 +17,43 @@ public class RegisterBean {
     private String uname;
     private String passwd;
 
-    public String getUserName() {
+    public String getUserName() {//getter for class value
         return uname;
     }
 
-    public void setUserName(String uname) {
+    public void setUserName(String uname) { //setter for class value
         this.uname = uname;
     }
 
-    public String getPassword() {
+    public String getPassword() {//getter for class value
         return passwd;
     }
 
-    public void setPassword(String passwd) {
+    public void setPassword(String passwd) {//setter for class value
         this.passwd = passwd;
     }
 
-    public void setName(String name) {
+    public void setName(String name) {//setter for class value
         this.name = name;
     }
 
-    public String getName() {
+    public String getName() {//getter for class value
         return name;
     }
     
-    public void setAddress(String address) {
+    public void setAddress(String address) {//setter for class value
         this.address = address;
     }
 
-    public String getAddress() {
+    public String getAddress() {//getter for class value
         return address;
     }
     
-    public void setType(String type) {
+    public void setType(String type) {//setter for class value
         this.type = type;
     }
 
-    public String getType() {
+    public String getType() {//getter for class value
         return type;
     }
 }

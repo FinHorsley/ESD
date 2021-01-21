@@ -4,7 +4,7 @@
     Author     : harry
 --%>
 
-<%@page import="DOA.DBConnection"%>
+<%@page import="DAO.DBConnection"%>
 <%@page import="java.sql.*"%>
 <%@page import="beans.UserBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

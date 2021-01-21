@@ -17,43 +17,43 @@ public class EmployeeRegisterBean {
     private String euname;
     private String epasswd;
 
-    public String geteUserName() {
+    public String geteUserName() {//getter for class value
         return euname;
     }
 
-    public void seteUserName(String euname) {
+    public void seteUserName(String euname) {//setter for class value
         this.euname = euname;
     }
 
-    public String getePassword() {
+    public String getePassword() {//getter for class value
         return epasswd;
     }
 
-    public void setePassword(String epasswd) {
+    public void setePassword(String epasswd) {//setter for class value
         this.epasswd = epasswd;
     }
 
-    public void seteName(String ename) {
+    public void seteName(String ename) {//setter for class value
         this.ename = ename;
     }
 
-    public String geteName() {
+    public String geteName() {//getter for class value
         return ename;
     }
     
-    public void seteAddress(String eaddress) {
+    public void seteAddress(String eaddress) {//setter for class value
         this.eaddress = eaddress;
     }
 
-    public String geteAddress() {
+    public String geteAddress() {//getter for class value
         return eaddress;
     }
     
-    public void seteType(String etype) {
+    public void seteType(String etype) {//setter for class value
         this.etype = etype;
     }
 
-    public String geteType() {
+    public String geteType() {//getter for class value
         return etype;
     }
 }
