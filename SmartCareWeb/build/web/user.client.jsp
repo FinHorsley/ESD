@@ -12,11 +12,11 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="SmartCare.css"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <%-- linking css style sheet --%>
 
     </style>
     <meta charset="utf-8">
-    <title>Client CPanel - SmartCare</title>
+    <title>Client CPanel - SmartCare</title> <%-- display title --%>
 </head>
 <body>
     <%
@@ -40,7 +40,7 @@
 
             <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
             <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
-            <a class="right" href = "http://localhost:8080/SmartCareWeb/view.invoice.jsp">View Invoices</a>
+            <a class="right" href = "http://localhost:8080/SmartCareWeb/view.invoice.jsp">View Invoices</a> <%-- navigation menu --%>
 
 
         </div>
@@ -49,12 +49,12 @@
 </div>
 
 <div style="text-align: center">
-    <h1>Client Control Panel</h1>
+    <h1>Client Control Panel</h1> <%-- display text --%>
 
     <br><br>
 
-    <a href = "http://localhost:8080/SmartCareWeb/booking.jsp">booking</a>
-    <h2>Your Appointments</h2>
+    <a href = "http://localhost:8080/SmartCareWeb/booking.jsp">booking</a><%-- redirecting to a different page --%>
+    <h2>Your Appointments</h2> <%-- display text --%>
     <h3>(If table blank no appointments made)</h3>
 </div>
 <div>
@@ -66,13 +66,13 @@
             <td><b>Appointment ID</b></td>
             <td><b>Employee ID</b></td>
             <td><b>Client Username</b></td>
-            <td><b>Appointment Date</b></td>
+            <td><b>Appointment Date</b></td><%-- display appointment data --%>
             <td><b>Appointment Time</b></td>
             <td><b>Appointment Reason</b></td>
         </tr>
         <%            Connection con1 = null;
             con1 = DBConnection.createConnection();
-            PreparedStatement statement1 = null;
+            PreparedStatement statement1 = null;//creating a connection
             ResultSet resultSet1 = null;
 
             String Username = UserBean.uname;
@@ -88,7 +88,7 @@
         <tr>
             <td><%=resultSet1.getString("sid")%></td>
             <td><%=resultSet1.getString("eid")%></td>
-            <td><%=Username%></td>
+            <td><%=Username%></td> <%-- display the data from database --%>
             <td><%=resultSet1.getString("sdate")%></td>
             <td><%=resultSet1.getString("stime")%></td>
             <td><%=resultSet1.getString("sreason")%></td>
@@ -98,7 +98,7 @@
                 }
 
             } catch (Exception e) {
-                e.printStackTrace();
+                e.printStackTrace();// pring sql error messages
             }
         %>
     </table>
@@ -106,13 +106,13 @@
 </div>
 <div id="contentBox" style="margin:0px auto; width:100%; text-align: center">
     <div id="column1" style="float:left; margin:0; width:50%;">
-        <h3>Book Appointment:</h3>
+        <h3>Book Appointment:</h3> <%-- display text --%>
         <form action = "http://localhost:8080/SmartCareWeb/booking.jsp">
-        <button type="submit">Book Appointment</button>
+        <button type="submit">Book Appointment</button> <%-- display text --%>
         </form>
     </div>
     <div id="column2" style="float:left; margin:0; width:50%;">
-        <h3>Cancel Appointment:</h3>
+        <h3>Cancel Appointment:</h3><%-- display text --%>
         
         <%!
             public class Booking {
@@ -120,12 +120,12 @@
                 Connection con = null;
                 PreparedStatement selectBooking = null;
                 ResultSet resultSet = null;
-                String Username1 = UserBean.uname;
+                String Username1 = UserBean.uname; //creating a connection to the database
 
                 public Booking() {
                     try {
                         con = DBConnection.createConnection();
-
+                                                                //selecting elements from database 
                         selectBooking = con.prepareStatement("SELECT * FROM booking_slots WHERE cid IN (SELECT cid FROM clients WHERE uname = ?)");
                         selectBooking.setString(1, Username1);
 
@@ -136,7 +136,7 @@
                 public ResultSet getBooking() {
                     try {
 
-                        resultSet = selectBooking.executeQuery();
+                        resultSet = selectBooking.executeQuery(); //execute query
                     } catch (SQLException e) {
                     }
                     return resultSet;
@@ -146,7 +146,7 @@
         <%
             Booking booking = new Booking();
             ResultSet Bookings = booking.getBooking();
-            Connection con2 = null;
+            Connection con2 = null; //make new object elements
             Statement stmt2 = null;
 
             if (request.getParameter("submit1") != null) {
@@ -159,7 +159,7 @@
                     String g = "DELETE FROM booking_slots WHERE sid = " + choice + "";
                     stmt2.executeUpdate(g);
                     stmt2.close();
-                    con2.commit();
+                    con2.commit(); //deleting from the database
                     con2.close();
 
                 } catch (SQLException ex) {
@@ -173,9 +173,9 @@
             <table align="center" border="0">
                 <tbody>
                     <tr>
-                        <td>Appointment ID's: </td>
+                        <td>Appointment ID's: </td> <%-- display text --%>
 
-                        <td><select name="bookingChoice">
+                        <td><select name="bookingChoice"> <%-- display drop down menu with data from the database --%>
                                 <%while (Bookings.next()) {%>
                                 <option value="<%= Bookings.getInt("sid")%>">Appointment ID: (<%= Bookings.getString("sid")%>)</option>
                                 <%}%>
@@ -183,7 +183,7 @@
                     </tr>
                 </tbody>
             </table>
-            <input type="submit" value="Cancel Appointment" name="submit1" />
+            <input type="submit" value="Cancel Appointment" name="submit1" /> <%-- creating the submit and reset buttons --%>
         </form>
           <br><br>                  
     </div>
@@ -191,7 +191,7 @@
 
 <div id="contentBox" style="margin:0px auto; width:100%">
     <div id="column1" style="float:left; margin:0; width:100%;">
-        <h2 align="center">Your Prescriptions</h2>
+        <h2 align="center">Your Prescriptions</h2><%-- display text --%>
         <br><br>
 
 
@@ -204,7 +204,7 @@
                 <td><b>Prescription ID</b></td>
                 <td><b>Booking Slot ID</b></td>
                 <td><b>Medicine Name</b></td>
-                <td><b>Quantity</b></td>
+                <td><b>Quantity</b></td> <%-- display text --%>
                 <td><b>Issue Date</b></td>
                 <td><b>End Date</b></td>
             </tr>
@@ -215,11 +215,11 @@
                     String Username1 = UserBean.uname;
                     Connection con3 = null;
                     PreparedStatement statement3 = null;
-                    ResultSet resultSet3 = null;
+                    ResultSet resultSet3 = null; //creating a connection to the database
                     con3 = DBConnection.createConnection();
 
                     
-                    String sql4 = "SELECT * FROM prescription WHERE cid IN (SELECT cid FROM clients WHERE uname = ?)";
+                    String sql4 = "SELECT * FROM prescription WHERE cid IN (SELECT cid FROM clients WHERE uname = ?)";//select elements from the database
                     statement3 = con3.prepareStatement(sql4);
                     statement3.setString(1, Username1);
 
@@ -232,7 +232,7 @@
                 <td><%=resultSet3.getString("pid")%></td>
                 <td><%=resultSet3.getString("sid")%></td>
                 <td><%=resultSet3.getString("medicine")%></td>
-                <td><%=resultSet3.getString("quantity")%></td>
+                <td><%=resultSet3.getString("quantity")%></td> <%-- display data from the database --%>
                 <td><%=resultSet3.getString("issuedate")%></td>
                 <td><%=resultSet3.getString("enddate")%></td>
 
@@ -242,7 +242,7 @@
                     }
 
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    e.printStackTrace(); //print out sql error messages
                 }
             %>
         </table> 

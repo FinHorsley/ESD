@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DOA;
+package DAO;
 
-import beans.RegisterBean;
+import beans.EmployeeRegisterBean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -14,12 +14,12 @@ import java.sql.SQLException;
  *
  * @author Harry Marsh
  */
-public class RegisterDao {
+public class EmployeeUserRegisterDAO {
 
-    public String registerUser(RegisterBean registerBean) {
-        String userName = registerBean.getUserName();
-        String password = registerBean.getPassword();
-        String role = "client";
+    public String EmployeeregisterUser(EmployeeRegisterBean registerBean) {
+        String userName = registerBean.geteUserName();
+        String password = registerBean.getePassword();
+        String role = "Not Approved: " + registerBean.geteType();
 
         Connection con = null;
         PreparedStatement preparedStatement = null;

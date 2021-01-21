@@ -5,8 +5,8 @@
  */
 package servlet;
 
-import DOA.DBConnection;
-import DOA.UserDAO;
+import DAO.DBConnection;
+import DAO.UserDAO;
 import beans.ClientBean;
 import beans.EmployeeBean;
 import beans.InvoiceBean;
@@ -29,7 +29,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author harry
+ * @author kamil
  */
 @WebServlet("/viewinvoice")
 public class viewInvoiceServlet extends HttpServlet {

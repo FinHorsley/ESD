@@ -13,7 +13,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="SmartCare.css"> 
         <meta charset="utf-8">
-        <title>SmartCare Website</title>
+        <title>SmartCare Website</title> <%-- display title --%>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <script>
@@ -41,7 +41,7 @@
                     return false;
                 }else if (type === null || type === "")
                 {
-                    alert("Username can't be blank");
+                    alert("Username can't be blank");   //validate user inputs
                     return false;
                 }
                 else if (passwd === null || passwd === "")
@@ -118,29 +118,29 @@
     <body>
         <div class="topnav">
             <a class="title left">Client Registration</a>
-            <a class="right" href="index.jsp">Home</a>
+            <a class="right" href="index.jsp">Home</a> <%-- navigation menu --%>
         </div>
-    <center><h2>Registration </h2></center>
+    <center><h2>Registration </h2></center> <%-- display title --%>
 
     <form name="form" action="Register" method="post" onsubmit="return validate()">
         <table align="center">
             <tr>
-                <td>Enter Full Name</td>
+                <td>Enter Full Name</td> <%-- data input box --%>
                 <td><input maxlength="32" type="text" name="name" placeholder="Enter Full Name" /></td>
             </tr>
             <tr>
-                <td>Enter Username</td>
+                <td>Enter Username</td> <%-- data input box --%>
                 <td><input maxlength="10" type="text" name="uname" placeholder="Enter Username"/></td>
             </tr>
             <tr>
-                <td>Enter Address</td>  
+                <td>Enter Address</td>  <%-- enter address using google api --%>
                 <td><input id="my-input-searchbox" type="text" placeholder="Enter Address" name ="address">
                     <div id="map"></div>
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtaj_5ZLCTnn5iGxYZMh7zogDTwxlTN6Y&libraries=places&callback=initMap"></script>
                 </td>
             </tr>
             <tr>
-                <td>Enter Type</td>
+                <td>Enter Type</td> <%-- choose what type of patient you are NHS or Private --%>
                 <td><select name="type">
                         <option value="NHS">NHS</option>
                         <option value="private">Private</option>
@@ -148,21 +148,21 @@
             </tr>
             <tr>
             <tr>
-                <td>Enter Password</td>
+                <td>Enter Password</td> <%-- data input box --%>
                 <td><input maxlength="10" type="password" name="passwd" placeholder="Enter Password"/></td>
             </tr>
             <tr>
-                <td>Confirm Password</td>
+                <td>Confirm Password</td> <%-- data input box --%>
                 <td><input maxlength="10" type="password" name="conpasswd" placeholder="Confirm Password"/></td>
             </tr>
             <tr>
                     <td><%=(request.getAttribute("errMessage") == null) ? ""
-                        : request.getAttribute("errMessage")%></td>
+                        : request.getAttribute("errMessage")%></td> <%-- display error messages if there are any --%>
             </tr>
             <tr>
                 <td></td>
                 <td><input type="submit" value="Register"></input>
-                    <input type="reset" value="Reset"></input></td>
+                    <input type="reset" value="Reset"></input></td> <%-- creating the submit and reset buttons --%>
             </tr>
         </table>
     </form>

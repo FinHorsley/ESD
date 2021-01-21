@@ -5,8 +5,8 @@
  */
 package servlet;
 
-import DOA.EmployeeRegisterDAO;
-import DOA.EmployeeUserRegisterDAO;
+import DAO.EmployeeRegisterDAO;
+import DAO.EmployeeUserRegisterDAO;
 import beans.EmployeeRegisterBean;
 import java.io.IOException;
 import javax.servlet.ServletException;

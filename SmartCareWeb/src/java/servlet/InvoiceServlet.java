@@ -5,7 +5,7 @@
  */
 package servlet;
 import beans.InvoiceBean;
-import DOA.InvoiceDAO;
+import DAO.InvoiceDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  
 /**
  *
- * @author Harry Marsh
+ * @author kamil
  */
 @WebServlet("/invoice") 
 public class InvoiceServlet extends HttpServlet {

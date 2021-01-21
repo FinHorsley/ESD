@@ -6,7 +6,7 @@
 package servlet;
 
 import beans.UserBean;
-import DOA.UserDAO;
+import DAO.UserDAO;
 import java.io.*;
 import java.sql.SQLException;
 

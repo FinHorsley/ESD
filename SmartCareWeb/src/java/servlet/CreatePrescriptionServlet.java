@@ -5,7 +5,7 @@
  */
 package servlet;
 
-import DOA.CreatePrescriptionDAO;
+import DAO.CreatePrescriptionDAO;
 import beans.PChoiceBean;
 import beans.PrescriptionBean;
 import java.io.IOException;
