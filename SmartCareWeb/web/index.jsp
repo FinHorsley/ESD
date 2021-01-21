@@ -15,17 +15,17 @@
     <body>
 <%
 UserBean user = null;
-user = new UserBean();
+user = new UserBean(); //setting the user to no user to apply filters
 user.setRole("NoUser");
 %>
         <div class="topnav">
             <a class="title left">SmartCare</a>
             <a class="right" href="login.jsp">Login</a>
             <a class="right" href="registration.jsp">Register</a>
-            <a class="right" href="registration.employee.jsp">Register Employee</a>
+            <a class="right" href="registration.employee.jsp">Register Employee</a> <%-- navigation menu --%>
         </div>
         <div style="padding-left:16px">
-            <h2>Top Navigation Example</h2>
+            <h2>Top Navigation Example</h2> <%-- display text --%>
             <p>Some content..</p>
         </div>
     </body>

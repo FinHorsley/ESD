@@ -1,9 +1,9 @@
 <%-- 
     Document   : home
     Created on : 10-Dec-2020, 14:05:07
-    Author     : harry
+    Author     : kamil
 --%>
-
+ <%-- importing needed packages  --%>
 <%@page import="beans.PrescriptionBean"%>
 <%@page import="beans.SlotBean"%>
 <%@page import="beans.ClientBean"%>
@@ -23,7 +23,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
+        <style> <%-- creating a style sheet --%>
             body {
                 margin: 0;
                 font-family: Arial, Helvetica, sans-serif;
@@ -126,7 +126,7 @@
 
 
         <meta charset="utf-8">
-        <title>Admin CPanel - SmartCare</title>
+        <title>Admin CPanel - SmartCare</title> <%-- displaying title --%>
     </head>
     <body>
         <%
@@ -145,7 +145,7 @@
 
             EmployeeBean ERBean = new EmployeeBean();
             InvoiceBean IRBean = new InvoiceBean();
-            ClientBean CRBean = new ClientBean();
+            ClientBean CRBean = new ClientBean(); // creating bean object to be accessed and retrive the data
             SlotBean SRBean = new SlotBean();
             PrescriptionBean PRBean = new PrescriptionBean();
         %> 
@@ -155,20 +155,20 @@
             <a class="title left">SmartCare Web Page</a>
             <div class="right">
                 <a class="right" href = "http://localhost:8080/SmartCareWeb/home.jsp">Home</a>
-                <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a>
+                <a class="right" href = "http://localhost:8080/SmartCareWeb/logout">Logout</a> <%-- navigation menu --%>
             </div>
 
         </div>
 
         <div style="text-align: center">
-            <h1>Welcome to SmartCare Invoice Centre</h1>
+            <h1>Welcome to SmartCare Invoice Centre</h1> <%-- displaying text for user --%>
             <h2>Below you will find your generated invoice</h2>
             <br><br>
         </div>
     <center>
-        <div style= "background-color:beige;width:1000px;height:400px;border:25px solid #F5F5DC;">
+        <div style= "background-color:beige;width:1000px;height:400px;border:25px solid #F5F5DC;"> <%-- making a rectangle where all other element are stationed --%>
             <h3>Smart Care Invoice</h3> 
-            <h4>Invoice Number:  <%=IRBean.getIID()%></h4>        
+            <h4>Invoice Number:  <%=IRBean.getIID()%></h4>        <%-- outputting the data corresponding to the name of the collumn in the table --%>
             <h4>Patient Name:    <%=CRBean.getCname()%></h4>     
             <h4>Patient Address: <%=CRBean.getCaddress()%></h4> 
             <h4>Physician:       <%=ERBean.getEname()%></h4>     
@@ -177,18 +177,18 @@
                 <tr>
                     <th>Date</th> 
                     <th>Services Performed</th>
-                    <th>Medication Prescribed</th>
+                    <th>Medication Prescribed</th> <%-- outputting the data corresponding to the name of the collumn in the table --%>
                     <th>Amount Due</th>
                 </tr>
                 <tr>
                     <th><a style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /><%=SRBean.getSdate()%></a></th> 
-                    <th><a style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /><%=SRBean.getSreason()%></a></th> 
+                    <th><a style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /><%=SRBean.getSreason()%></a></th> <%-- outputting the data corresponding to the name of the collumn in the table --%>
                     <th><a style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" /><%=PRBean.getMedicine()%></a></th> 
                     <th><a style="background-color:beige; width: 150px;" type="text" id="iid" name="iid" />Not added yet</a></th> 
 
                 </tr>
             </table>
-            <h5> Total: <input style =" border: #F5F5DC; margin-right: -87px; width: 75px;" type="number" id="total" name="total" /> </h5>
+            <h5> Total: <input style =" border: #F5F5DC; margin-right: -87px; width: 75px;" type="number" id="total" name="total" /> </h5> <%-- total amout to be payed --%>
 
         </div>    
     </center>                

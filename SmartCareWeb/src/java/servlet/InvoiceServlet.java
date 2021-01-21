@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  //--------------imports
 /**
  *
- * @author Harry Marsh
+ * @author kamil
  */
 @WebServlet("/invoice") 
 public class InvoiceServlet extends HttpServlet {

@@ -13,7 +13,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="SmartCare.css"> 
         <meta charset="utf-8">
-        <title>SmartCare Website</title>
+        <title>SmartCare Website</title> <%-- display title --%>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <script>
@@ -41,7 +41,7 @@
                     return false;
                 } else if (type === null || type === "")
                 {
-                    alert("Username can't be blank");
+                    alert("Username can't be blank"); //validate user input
                     return false;
                 } else if (passwd === null || passwd === "")
                 {
@@ -87,7 +87,7 @@
                         ['address_components', 'geometry', 'name']);
 
                 // Listen for the event fired when the user selects a prediction and retrieve
-                // more details for that place.
+                // more details for that place.     
                 autocomplete.addListener('place_changed', function () {
                     var place = autocomplete.getPlace();
                     if (!place.geometry) {
@@ -116,7 +116,7 @@
     </head>
     <body>
         <div class="topnav">
-            <a class="title left">Employee Registration</a>
+            <a class="title left">Employee Registration</a> <%-- navigation menu --%>
             <a class="right" href="index.jsp">Home</a>
         </div>
     <center><h2>Registration </h2></center>
@@ -124,21 +124,21 @@
     <form name="form" action="EmployeeRegister" method="post" onsubmit="return validate()">
         <table align="center">
             <tr>
-                <td>Enter Full Name</td>
+                <td>Enter Full Name</td> <%-- data input box --%>
                 <td><input  type="text" name="name" placeholder="Enter Full Name" /></td>
             </tr>
             <tr>
-                <td>Enter Username</td>
+                <td>Enter Username</td> <%-- data input box --%>
                 <td><input  type="text" name="uname" placeholder="Enter Username"/></td>
             </tr>
             <tr>
-                <td>Enter Address</td>  
+                <td>Enter Address</td>  <%-- choosing an address using google api --%>
                 <td><input id="my-input-searchbox" type="text" placeholder="Enter Address" name ="address">
                     <div id="map"></div>
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtaj_5ZLCTnn5iGxYZMh7zogDTwxlTN6Y&libraries=places&callback=initMap"></script>
                 </td>
             <tr>
-                <td>Enter Type</td>
+                <td>Enter Type</td> <%-- choose if nurse or doctor --%>
                 <td><select name="type">
                         <option value="doctor">Doctor</option>
                         <option value="nurse">Nurse</option>
@@ -146,21 +146,21 @@
             </tr>
             <tr>
             <tr>
-                <td>Enter Password</td>
+                <td>Enter Password</td> <%-- data input box --%>
                 <td><input  type="password" name="passwd" placeholder="Enter Password"/></td>
             </tr>
             <tr>
-                <td>Confirm Password</td>
+                <td>Confirm Password</td> <%-- data input box --%>
                 <td><input  type="password" name="conpasswd" placeholder="Confirm Password"/></td>
             </tr>
             <tr>
                     <td><%=(request.getAttribute("errMessage") == null) ? ""
-                        : request.getAttribute("errMessage")%></td>
+                        : request.getAttribute("errMessage")%></td> <%-- display error messages if there are any --%>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                    <input type="submit" value="Register"></input>
+                    <input type="submit" value="Register"></input> <%-- creating the submit and reset buttons --%>
                     <input type="reset" value="Reset"></input>
                 </td>
             </tr>

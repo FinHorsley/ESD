@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/web/create.invoice.jsp</file>
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/src/java/DOA/InvoiceDAO.java</file>
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/src/java/servlet/InvoiceServlet.java</file>
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/web/user.nurse.jsp</file>
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/web/view.invoice.jsp</file>
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/web/user.client.jsp</file>
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/web/user.admin.jsp</file>
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/web/generate.invoice.jsp</file>
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/src/java/beans/InvoiceBean.java</file>
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/src/java/DOA/BookingDAO.java</file>
-            <file>file:/C:/Users/kamil/Documents/GitHub/ESD/SmartCareWeb/web/booking.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
