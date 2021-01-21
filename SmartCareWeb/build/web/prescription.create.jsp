@@ -56,32 +56,33 @@
     </head>
     <body>
         <div class="topnav">
-            <a class="title left">Book an Appointment</a>
+            <a class="title left">Create Prescription</a>
             <a class="right" href="home.jsp">Home</a>
         </div>
     <center><h2>Consultation Booking </h2></center>
 
     <%!
-        public class Employee {
+        public class Client {
 
             Connection con6 = null;
-            PreparedStatement selectEmployee = null;
+            PreparedStatement selectClient = null;
             ResultSet resultSet2 = null;
 
-            public Employee() {
+            public Client() {
                 try {
                     con6 = DBConnection.createConnection();
 
-                    selectEmployee = con6.prepareStatement("SELECT * FROM employee");
+                    selectClient = con6.prepareStatement("SELECT * FROM clients");
 
                 } catch (SQLException e) {
                 }
             }
 
-            public ResultSet getInClient() {
+            public ResultSet getClient() {
                 try {
-                    resultSet2 = selectEmployee.executeQuery();
+                    resultSet2 = selectClient.executeQuery();
                 } catch (SQLException e) {
+                    e.printStackTrace();
                 }
                 return resultSet2;
             }
@@ -89,44 +90,54 @@
     %>
 
     <%
-        Employee employee = new Employee();
-        ResultSet Employee = employee.getInClient();
+        Client client = new Client();
+        ResultSet Client = client.getClient();
     %> 
 
-    <form name="form" action="booking" method="post" onsubmit="return validate()">
+    <form name="form" action="setp" method="post" onsubmit="return validate()">
 
         <table align="center">
             <tr>
-                <td>Employee Id: </td>
-                <td><select name="EmployeeChoice">
-                        <%while (Employee.next()) {%>
-                        <option value="<%= Employee.getString("eid")%>"><%= Employee.getString("ename")%></option>
+                <td>Client Name: </td>
+                <td><select name="ClientChoice">
+                        <%while (Client.next()) {%>
+                        <option value="<%= Client.getString("cid")%>"><%= Client.getString("cname")%></option>
                         <%}%>
                     </select></td>
             </tr>
+            <tr>   
+                <td>Enter Medicine Name: </td>
+                <td><input  type="text" placeholder="Enter Medicine Name" name ="MedicineName">  </td>  
+            </tr>
+
+            <tr>  
+                <td>Enter Quantity: </td>
+                <td><input  type="number" placeholder="Enter Quantity" name ="MedicineQuantity">    </td>
+            </tr>
+
+
+            <tr>   
+                <td>Is Recurring?: </td>
+                <td><select name ="repeatp">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select></td>   
+            </tr>  
+
             <tr>
-                <td>Slot Date:</td>
-                <td><input type="date" name="sdate" /></td>
+                <td>Issue Date:</td>
+                <td><input type="date" name="pStartDate" /></td>
             </tr>
             <tr>
-                <td>Slot Time:</td>
-                <td><input type="time" name="stime" /></td>
+                <td>End of use date:</td>
+                <td><input type="date" name="pEndDate" /></td>
             </tr>
             <tr>
-                <td>Appointment Reason</td>
-                <td><select name ="sreason">
-                        <option value ="Prescription"> Prescription</option>
-                        <option value ="Consoltation"> Consultation</option>
-                    </select></td>
-            </tr>
-            <tr>
-                    <td><%=(request.getAttribute("errMessage") == null) ? ""
-                        : request.getAttribute("errMessage")%></td>
+                <td><%=(request.getAttribute("errMessage") == null) ? "" : request.getAttribute("errMessage")%></td>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Confirm"></input><input
-                        type="reset" value="Reset"></input></td>
+                <td><input type="submit" value="Confirm"></input><input type="reset" value="Reset"></input></td>
             </tr>
         </table>
     </form>

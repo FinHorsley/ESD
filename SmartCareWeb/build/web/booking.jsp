@@ -60,39 +60,39 @@
             <a class="right" href="home.jsp">Home</a>
         </div>
     <center><h2>Consultation Booking </h2></center>
-    
-        <%!
-            public class Employee {
 
-                Connection con6 = null;
-                PreparedStatement selectEmployee = null;
-                ResultSet resultSet2 = null;
+    <%!
+        public class Employee {
 
-                public Employee() {
-                    try {
-                        con6 = DBConnection.createConnection();
+            Connection con6 = null;
+            PreparedStatement selectEmployee = null;
+            ResultSet resultSet2 = null;
 
-                        selectEmployee = con6.prepareStatement("SELECT * FROM employee");
+            public Employee() {
+                try {
+                    con6 = DBConnection.createConnection();
 
-                    } catch (SQLException e) {
-                    }
-                }
+                    selectEmployee = con6.prepareStatement("SELECT * FROM employee");
 
-                public ResultSet getInClient() {
-                    try {
-                        resultSet2 = selectEmployee.executeQuery();
-                    } catch (SQLException e) {
-                    }
-                    return resultSet2;
+                } catch (SQLException e) {
                 }
             }
-        %>
 
-        <%
-            Employee employee = new Employee();
-            ResultSet Employee = employee.getInClient();
-        %> 
-        
+            public ResultSet getInClient() {
+                try {
+                    resultSet2 = selectEmployee.executeQuery();
+                } catch (SQLException e) {
+                }
+                return resultSet2;
+            }
+        }
+    %>
+
+    <%
+        Employee employee = new Employee();
+        ResultSet Employee = employee.getInClient();
+    %> 
+
     <form name="form" action="booking" method="post" onsubmit="return validate()">
 
         <table align="center">
@@ -114,11 +114,14 @@
             </tr>
             <tr>
                 <td>Appointment Reason</td>
-                <td><input type="text" name="sreason" /></td>
+                <td><select name ="sreason">
+                        <option value ="Prescription"> Prescription</option>
+                        <option value ="Consoltation"> Consultation</option>
+                    </select></td>
             </tr>
             <tr>
-                <td><%=(request.getAttribute("errMessage") == null) ? ""
-                            : request.getAttribute("errMessage")%></td>
+                    <td><%=(request.getAttribute("errMessage") == null) ? ""
+                        : request.getAttribute("errMessage")%></td>
             </tr>
             <tr>
                 <td></td>
