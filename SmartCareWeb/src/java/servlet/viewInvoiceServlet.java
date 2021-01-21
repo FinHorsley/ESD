@@ -6,6 +6,8 @@
 package servlet;
 //--------------imports
 import DAO.DBConnection;
+import DAO.DBConnection;
+import DAO.UserDAO;
 import beans.ClientBean;
 import beans.EmployeeBean;
 import beans.InvoiceBean;
@@ -26,7 +28,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Harry Marsh
+ * @author Kamil Lukomski
+
  */
 
 @WebServlet("/viewinvoice")

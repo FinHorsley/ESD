@@ -4,6 +4,7 @@
     Author     : harry & kamil
 --%>
 
+%-- importing packages --%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="DAO.DBConnection"%>
@@ -39,7 +40,7 @@
                     return false;
                 } else if (cid === null || cid === "")
                 {
-                    alert("Client ID can't be blank");
+                    alert("Client ID can't be blank");      <%-- validating fiels which are inputed by the user --%>
                     return false;
                 } else if (sdate === null || sdate === "")
                 {
@@ -56,23 +57,23 @@
     </head>
     <body>
         <div class="topnav">
-            <a class="title left">Book an Appointment</a>
-            <a class="right" href="home.jsp">Home</a>
+            <a class="title left">Book an Appointment</a> <%-- displaying text --%>
+            <a class="right" href="home.jsp">Home</a> <%-- creating a button on top right of page --%>
         </div>
-    <center><h2>Consultation Booking </h2></center>
+    <center><h2>Consultation Booking </h2></center> <%-- displaying text --%>
 
     <%!
         public class Employee {
 
             Connection con6 = null;
-            PreparedStatement selectEmployee = null;
+            PreparedStatement selectEmployee = null; //creating a connection to database
             ResultSet resultSet2 = null;
 
             public Employee() {
                 try {
                     con6 = DBConnection.createConnection();
 
-                    selectEmployee = con6.prepareStatement("SELECT * FROM employee");
+                    selectEmployee = con6.prepareStatement("SELECT * FROM employee"); //selecting everything from employee table
 
                 } catch (SQLException e) {
                 }
@@ -80,7 +81,7 @@
 
             public ResultSet getInClient() {
                 try {
-                    resultSet2 = selectEmployee.executeQuery();
+                    resultSet2 = selectEmployee.executeQuery(); //exacuting quary
                 } catch (SQLException e) {
                 }
                 return resultSet2;
@@ -89,43 +90,42 @@
     %>
 
     <%
-        Employee employee = new Employee();
-        ResultSet Employee = employee.getInClient();
+        Employee employee = new Employee(); //make new employee class
+        ResultSet Employee = employee.getInClient(); //get the information about the client by calling this method
     %> 
 
     <form name="form" action="booking" method="post" onsubmit="return validate()">
-
-        <table align="center">
+        <table align="center"> <%-- creating a table and centering it --%>
             <tr>
-                <td>Employee Id: </td>
+                <td>Employee Id: </td> <%-- displaying label --%>
                 <td><select name="EmployeeChoice">
                         <%while (Employee.next()) {%>
                         <option value="<%= Employee.getString("eid")%>"><%= Employee.getString("ename")%></option>
-                        <%}%>
+                        <%}%>   <%-- making a drop down manu with populated fields from the database --%>
                     </select></td>
             </tr>
             <tr>
                 <td>Slot Date:</td>
-                <td><input type="date" name="sdate" /></td>
+                <td><input type="date" name="sdate" /></td> <%-- displaying label and making input box  --%>
             </tr>
             <tr>
                 <td>Slot Time:</td>
-                <td><input type="time" name="stime" /></td>
+                <td><input type="time" name="stime" /></td> <%-- displaying label and making input box  --%>
             </tr>
             <tr>
-                <td>Appointment Reason</td>
+                <td>Appointment Reason</td> <%-- displaying label and making input box  --%>
                 <td><select name ="sreason">
-                        <option value ="Prescription"> Prescription</option>
+                        <option value ="Prescription"> Prescription</option><%-- making a drop down menu with appointment options to choose from --%>
                         <option value ="Consoltation"> Consultation</option>
                     </select></td>
             </tr>
             <tr>
-                    <td><%=(request.getAttribute("errMessage") == null) ? ""
+                    <td><%=(request.getAttribute("errMessage") == null) ? "" //displaying error massages if there are any
                         : request.getAttribute("errMessage")%></td>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Confirm"></input><input
+                <td><input type="submit" value="Confirm"></input><input <%-- creating confirm and reset buttons  --%>
                         type="reset" value="Reset"></input></td>
             </tr>
         </table>
